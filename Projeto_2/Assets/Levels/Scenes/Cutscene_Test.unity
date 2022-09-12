@@ -566,9 +566,11 @@ MonoBehaviour:
   input: Cena 2
   textColor: {r: 0, g: 0, b: 0, a: 1}
   textFont: {fileID: 12800000, guid: 6acbb7b3600a3104b8cc0138c993fb04, type: 3}
-  delay: 2
-  backgroundSprite: {fileID: 21300000, guid: 2cc79cf7ee3f7684d887ea05f3c36a18, type: 3}
+  letterByLetterDelay: 0
+  cutsceneSprite: {fileID: 21300000, guid: 2cc79cf7ee3f7684d887ea05f3c36a18, type: 3}
   imageHolder: {fileID: 783547800}
+  canvasGroup: {fileID: 1334516936}
+  fadeDuration: 0.4
 --- !u!114 &1292847643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623,6 +625,7 @@ GameObject:
   - component: {fileID: 1334516934}
   - component: {fileID: 1334516933}
   - component: {fileID: 1334516932}
+  - component: {fileID: 1334516936}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -711,6 +714,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &1334516936
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334516931}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2114222663
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,9 +780,11 @@ MonoBehaviour:
   input: Cena 1
   textColor: {r: 0, g: 0, b: 0, a: 1}
   textFont: {fileID: 12800000, guid: 6acbb7b3600a3104b8cc0138c993fb04, type: 3}
-  delay: 0.1
-  backgroundSprite: {fileID: 21300000, guid: 2cc79cf7ee3f7684d887ea05f3c36a18, type: 3}
+  letterByLetterDelay: 0
+  cutsceneSprite: {fileID: 21300000, guid: 2cc79cf7ee3f7684d887ea05f3c36a18, type: 3}
   imageHolder: {fileID: 127104826}
+  canvasGroup: {fileID: 1334516936}
+  fadeDuration: 0.4
 --- !u!114 &2114222666
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ namespace CutsceneSystem
     public class CutsceneBaseClass : MonoBehaviour
     {
         // Boolean to define whether the text has completely appeared or not.
-        public bool finished { get; protected set; }
+        public bool cutsceneTextLineFinished { get; protected set; }
 
         // Function for writing letter by letter the inputted string with a delay on Text component
         // string input - String to be displayed on textHolder
@@ -15,8 +15,10 @@ namespace CutsceneSystem
         // Color textColor - Sets color for the text component
         // Font textFont - Sets font for the text component
         // float delay - Defines delay between each letter to appear
-        protected IEnumerator WriteText(string input, Text textHolder, Color textColor, Font textFont, float delay)
+        protected IEnumerator WriteText(string input, Text textHolder, Color textColor, Font textFont, float delay, CanvasGroup canvasGroup, float fadeDuration)
         {
+            yield return new WaitForSeconds(fadeDuration);
+
             textHolder.color = textColor;
             textHolder.font = textFont;
 
@@ -25,10 +27,6 @@ namespace CutsceneSystem
                 textHolder.text += input[i];
                 yield return new WaitForSeconds(delay);
             }
-
-            yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
-
-            finished = true;
         }
     }
 }

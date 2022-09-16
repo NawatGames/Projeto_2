@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 3577076332606640850, guid: b2108e1198364ad409c10141ce81316f, type: 3}
   player: {fileID: 622635905}
-  fireRate: 5
+  fireRate: 10
 --- !u!4 &123324528
 Transform:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123324526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28072643, y: 2.054572, z: -18.582218}
+  m_LocalPosition: {x: -0.19, y: 10.53, z: -18.582218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 622635906}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,7 +245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622635905}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.3872, y: 2.8372, z: 0}
+  m_LocalPosition: {x: 0.28, y: -2.32, z: 0}
   m_LocalScale: {x: 1.9455, y: 1.9455, z: 1.9455}
   m_Children: []
   m_Father: {fileID: 0}

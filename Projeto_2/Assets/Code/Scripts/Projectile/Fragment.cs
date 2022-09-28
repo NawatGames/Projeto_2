@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NormalBullet : MonoBehaviour
+public class Fragment : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed = 10f;
     [SerializeField] private float bulletLifetime = 0.5f;

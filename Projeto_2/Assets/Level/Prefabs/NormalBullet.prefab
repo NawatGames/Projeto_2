@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4924276723450349074}
   - component: {fileID: 1992789275394618878}
+  - component: {fileID: 4884976497790721346}
   m_Layer: 0
   m_Name: NormalBullet
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4924276723450349073}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6452628917566521797}
   m_Father: {fileID: 0}
@@ -44,8 +45,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db497ad55ed7632419ac2cf537d93c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 2
-  bulletLifetime: 5
+  bulletSpeed: 5
+  bulletLifetime: 4
+--- !u!50 &4884976497790721346
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924276723450349073}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5186848106830312944
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +95,7 @@ Transform:
   m_GameObject: {fileID: 5186848106830312944}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.10006413, y: 0.10006413, z: 0.10006413}
   m_Children: []
   m_Father: {fileID: 4924276723450349074}
   m_RootOrder: 0

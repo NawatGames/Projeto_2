@@ -2,12 +2,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace CutsceneSystem
+namespace DialogueSystem
 {
-    public class CutsceneBaseClass : MonoBehaviour
+    public class DialogueBaseClass : MonoBehaviour
     {
         // Boolean to define whether the text has completely appeared or not.
-        public bool cutsceneTextLineFinished { get; protected set; }
+        public bool textLineFinished { get; protected set; }
 
         // Function for writing letter by letter the inputted string with a delay on Text component
         // string input - String to be displayed on textHolder
@@ -15,7 +15,7 @@ namespace CutsceneSystem
         // Color textColor - Sets color for the text component
         // Font textFont - Sets font for the text component
         // float delay - Defines delay between each letter to appear
-        protected IEnumerator WriteText(string input, Text textHolder, Color textColor, Font textFont, float delay, CanvasGroup canvasGroup, float fadeDuration)
+        protected IEnumerator WriteText(string input, Text textHolder, Color textColor, Font textFont, float delay, float fadeDuration)
         {
             yield return new WaitForSeconds(fadeDuration);
 

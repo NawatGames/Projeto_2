@@ -1,10 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-namespace CutsceneSystem
+namespace DialogueSystem
 {
     // Script to be placed on Gameobject that will hold the Text gameobjects as children
-    public class CutsceneTextHolder : MonoBehaviour
+    public class DialogueTextHolder : MonoBehaviour
     {
         // Starts to present all TextLines present as child of this gameObject.
         private void Awake()
@@ -19,7 +19,7 @@ namespace CutsceneSystem
             {
                 Deactivate();
                 transform.GetChild(i).gameObject.SetActive(true);
-                yield return new WaitUntil(() => transform.GetChild(i).GetComponent<CutsceneTextLine>().cutsceneTextLineFinished);
+                yield return new WaitUntil(() => transform.GetChild(i).GetComponent<CutsceneTextLine>().textLineFinished);
             }
             gameObject.SetActive(false);
         }

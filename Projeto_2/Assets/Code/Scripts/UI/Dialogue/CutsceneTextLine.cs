@@ -2,14 +2,15 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace CutsceneSystem
+namespace DialogueSystem
 {
     // Basic cutscene card script that will control the text and image that will appear during the cutscene.
-    public class CutsceneTextLine : CutsceneBaseClass
+    public class CutsceneTextLine : DialogueBaseClass
     {
         private Text textHolder;
         private IEnumerator writeTextLine;
         private bool faded;
+        private bool wait;
 
         [Header ("Text Options")]
         [SerializeField] private string input; // Text to be displayed
@@ -32,6 +33,7 @@ namespace CutsceneSystem
         {
             canvasGroup.alpha = 0;
             faded = true;
+            wait = false;
 
             textHolder = GetComponent<Text>();
             textHolder.text = "";
@@ -44,7 +46,7 @@ namespace CutsceneSystem
         private void Start()
         {
             StartCoroutine(Fade(canvasGroup, canvasGroup.alpha, faded?1:0, false));
-            writeTextLine = WriteText(input, textHolder, textColor, textFont, letterByLetterDelay, canvasGroup, fadeDuration);
+            writeTextLine = WriteText(input, textHolder, textColor, textFont, letterByLetterDelay, fadeDuration);
             StartCoroutine(writeTextLine);
         }
 
@@ -68,23 +70,26 @@ namespace CutsceneSystem
             if (cutsceneEnd)
             {
                 yield return new WaitForSeconds(fadeDuration);
-                cutsceneTextLineFinished = true;
+                textLineFinished = true;
             }
         }
 
         // Ends the letter by letter animation for the text on player demand or continue the cutscene
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !wait)
             {
                 if (textHolder.text != input)
                 {
                     StopCoroutine(writeTextLine);
                     textHolder.text = input;
+                    textHolder.color = textColor;
+                    textHolder.font = textFont;
                 }
                 else
                 {
                     StartCoroutine(Fade(canvasGroup, canvasGroup.alpha, faded?1:0, true));
+                    wait = true;
                 }
             }
         }

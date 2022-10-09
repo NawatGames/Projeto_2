@@ -23,11 +23,13 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    // Bug correction since Unity always highlight first selected of eventSystem
     public void Awake()
     {
         eventSystem.SetSelectedGameObject(null);
     }
 
+    // Sets navigation via mouse or keyboard
     public void Update()
     {
         if ((Input.GetAxis("Mouse X") != 0) || (Input.GetAxis("Mouse Y") != 0))

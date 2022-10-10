@@ -5,12 +5,16 @@ using UnityEngine;
 public class AttackPattern1 : IState
 {
     public float TimePassed;
-    private readonly GameObject _attackPatternHolder;
+    private readonly ArcherBoss _archerBoss;
+    private readonly GameObject _attackPattern;
+    private readonly float _currentHealth;
 
     // Constructor
-    public AttackPattern1(GameObject attackPatternHolder)
+    public AttackPattern1(ArcherBoss archerBoss, GameObject attackPattern, float currentHealth)
     {
-        _attackPatternHolder = attackPatternHolder;
+        _archerBoss = archerBoss;
+        _attackPattern = attackPattern;
+        _currentHealth = currentHealth;
     }
 
     // Checks time passed since active
@@ -23,12 +27,16 @@ public class AttackPattern1 : IState
     public void OnEnter()
     {
         TimePassed = 0f;
-        _attackPatternHolder.transform.GetChild(0).gameObject.SetActive(true);
+        _attackPattern.SetActive(true);
+        GameObject bossPart = _archerBoss.SpawnBossPart(_archerBoss.GetComponent<BoxCollider2D>().bounds);
+        bossPart.transform.SetParent(_archerBoss.transform);
     }
 
     // Clean up
     public void OnExit()
     {
-        _attackPatternHolder.transform.GetChild(0).gameObject.SetActive(false);
+        _archerBoss.DespawnBossAttack();
+        _archerBoss.DespawnBossParts();
+        _attackPattern.SetActive(false);
     }
 }

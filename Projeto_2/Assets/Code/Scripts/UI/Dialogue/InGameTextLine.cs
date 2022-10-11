@@ -34,14 +34,15 @@ namespace DialogueSystem
             textHolder.text = "";
         }
 
-        // Starts to write the text line
-        private void Start()
+        // Starts to write the text line every time it is activated
+        private void OnEnable()
         {
             StartCoroutine(Fade(canvasGroup, canvasGroup.alpha, faded?1:0));
             writeTextLine = WriteText(input, textHolder, textColor, textFont, letterByLetterDelay, fadeDuration);
             StartCoroutine(writeTextLine);
         }
 
+        // Starts fading when input text is fully shown, and deactivates the object when faded, resetting the object properties
         private void Update()
         {
             if((textHolder.text == input) && (!ending))
@@ -51,6 +52,8 @@ namespace DialogueSystem
             }
             if((ending) && (faded))
             {
+                ending = false;
+                textHolder.text = "";
                 gameObject.SetActive(false);
             }
         }

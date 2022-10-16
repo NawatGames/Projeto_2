@@ -35,11 +35,14 @@ public class ArcherBoss : MonoBehaviour
         var initialDialogue = new InitialDialogue(_dialogueHolder);
         var attackPattern1 = new AttackPattern1(this, _attackPattern, _currentHealth);
         var dialogue1 = new Dialogue1(_dialogueHolder);
+        var bossDefeated = new BossDefeated(this);
 
         // Sets transitions
         Path(initialDialogue, attackPattern1, InitialDialogueFinished());
         Path(attackPattern1, dialogue1, TimeHasPassed());
         Path(dialogue1, attackPattern1, Dialogue1Finished());
+
+        _stateMachine.AddAnyTransition(bossDefeated, () => (_currentHealth <= 0));
 
         // Sets initial state
         _stateMachine.SetState(initialDialogue);

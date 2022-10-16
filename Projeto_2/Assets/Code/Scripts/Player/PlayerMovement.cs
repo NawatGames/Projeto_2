@@ -19,10 +19,17 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] TrailRenderer tr; //trail render to design impulse
 
+    [Header ("State control")]
+    [SerializeField] public bool _facingRight = false; // Is the player sprite facing to the right now?
+    [SerializeField] public bool _attacking = false; // Is the plpayer attacking now?
+
+    private GameObject _playerWeapon;
+
     // Start is called before the first frame update
     void Start()
     {
         activeMoveSpeed = moveSpeed;
+        _playerWeapon = transform.Find("Weapon").gameObject;
     }
 
     // Update is called once per frame
@@ -35,7 +42,24 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = moveInput * activeMoveSpeed; //velocity is the result of direction times current speed
 
-        if(Input.GetKeyDown(KeyCode.Space)) //if space is pressed...
+        // Controls the sprite to always face the direction the player is moving
+        if ((moveInput.x > 0) && (!_facingRight) && (!_attacking))
+        {
+            Flip();
+        }
+        else if ((moveInput.x < 0) && (_facingRight) && (!_attacking))
+        {
+            Flip();
+        }
+
+        // Attacks on key input
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            _attacking = true;
+            _playerWeapon.SetActive(true);
+        }
+
+        if(Input.GetKeyDown(KeyCode.LeftShift)) //if space is pressed...
         {//and the cooldown and dash time is equal to zero: player speed changes to dash, trail render is activated and the state
         // of time of dash start the countdown to reset
             if(dashCoolCounter <= 0 && dashCounter <= 0)
@@ -62,5 +86,15 @@ public class PlayerMovement : MonoBehaviour
         {
             dashCoolCounter -= Time.deltaTime;
         }
+    }
+
+    // Flips entire gameobject on X axis
+    public void Flip()
+    {
+        _facingRight = !_facingRight;
+
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 }

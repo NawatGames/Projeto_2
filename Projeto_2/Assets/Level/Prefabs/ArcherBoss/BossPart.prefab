@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 2
-  _attackTag: Player
+  _attackTag: PlayerWeapon
   _slider: {fileID: 8586460204049022848}
 --- !u!1 &5956583718932927908
 GameObject:

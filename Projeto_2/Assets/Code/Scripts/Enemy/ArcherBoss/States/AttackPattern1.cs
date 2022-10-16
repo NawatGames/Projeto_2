@@ -8,6 +8,7 @@ public class AttackPattern1 : IState
     private readonly ArcherBoss _archerBoss;
     private readonly GameObject _attackPattern;
     private readonly float _currentHealth;
+    private GameObject bossPart;
 
     // Constructor
     public AttackPattern1(ArcherBoss archerBoss, GameObject attackPattern, float currentHealth)
@@ -18,9 +19,15 @@ public class AttackPattern1 : IState
     }
 
     // Checks time passed since active
+    // If a boss part was destroyed, spawns another
     public void Tick()
     {
         TimePassed += Time.deltaTime;
+        if (bossPart == null)
+        {
+            bossPart = _archerBoss.SpawnBossPart(_archerBoss.GetComponent<BoxCollider2D>().bounds, 0);
+            bossPart.transform.SetParent(_archerBoss.transform);
+        }
     }
 
     // Setup
@@ -28,7 +35,7 @@ public class AttackPattern1 : IState
     {
         TimePassed = 0f;
         _attackPattern.SetActive(true);
-        GameObject bossPart = _archerBoss.SpawnBossPart(_archerBoss.GetComponent<BoxCollider2D>().bounds);
+        bossPart = _archerBoss.SpawnBossPart(_archerBoss.GetComponent<BoxCollider2D>().bounds, 0);
         bossPart.transform.SetParent(_archerBoss.transform);
     }
 

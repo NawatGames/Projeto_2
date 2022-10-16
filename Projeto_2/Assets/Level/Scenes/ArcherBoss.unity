@@ -130,6 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1303241110, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_Size.x
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303241110, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_Size.y
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303241110, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 2726972776558534261, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
       propertyPath: m_Name
       value: Player
@@ -246,37 +258,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1303241109 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2726972776558534261, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
-  m_PrefabInstance: {fileID: 273754061}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1303241110
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303241109}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
-  m_EdgeRadius: 0
 --- !u!1 &1666152780
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,6 +348,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6066792629514265726, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1666152782}
     - target: {fileID: 6066792629547411758, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -414,6 +399,14 @@ PrefabInstance:
     - target: {fileID: 6066792629547411759, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}
       propertyPath: m_Name
       value: ArcherBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895356903724432451, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895356903724432451, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}

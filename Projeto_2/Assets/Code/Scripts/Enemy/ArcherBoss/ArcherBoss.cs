@@ -2,15 +2,16 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 using Random=UnityEngine.Random;
 
 public class ArcherBoss : MonoBehaviour
 {
-    // Controls the boss stats
-    [Header ("Boss stats")]
+    // Controls the boss stats and options
+    [Header ("Boss stats and options")]
     [SerializeField] private static float _maxHealth = 500f;
-    [SerializeField] public GameObject _bossPart;
-    public float _currentHealth = _maxHealth;
+    [SerializeField] private List<GameObject> _bossPart = new List<GameObject>();
+    [SerializeField] private Slider _slider;
 
     // Duration of attack phase
     [Header ("State options")]
@@ -22,9 +23,12 @@ public class ArcherBoss : MonoBehaviour
     [SerializeField] private GameObject _attackPattern;
 
     private StateMachine _stateMachine;
+    public float _currentHealth;
     
     public void Awake()
     {
+        _currentHealth = _maxHealth;
+        _slider.value = CalculateHealth();
         _stateMachine = new StateMachine(); // Instantiates the state machine
 
         // Instantiates the states
@@ -49,16 +53,38 @@ public class ArcherBoss : MonoBehaviour
         Func<bool> TimeHasPassed() => () => (attackPattern1.TimePassed > _attackPhaseDuration);
     }
 
-    private void Update() => _stateMachine.Tick(); // Calls Tick() function from current state
+    // Calls Tick() function from statemachine, sets health.
+    private void Update()
+    {
+        _stateMachine.Tick(); // Calls Tick() function from current state
+
+        if (_currentHealth > _maxHealth)
+        {
+            _currentHealth = _maxHealth;
+        }
+
+        if (_currentHealth < 0)
+        {
+            _currentHealth = 0;
+        }
+
+        _slider.value = CalculateHealth();
+    }
+    
+    // returns float to control healthbar slider
+    public float CalculateHealth()
+    {
+        return _currentHealth/_maxHealth;
+    }
 
     // Spawns attackable parts of the boss
-    public GameObject SpawnBossPart(Bounds bounds)
+    public GameObject SpawnBossPart(Bounds bounds, int n)
     {
         Vector2 pos = new Vector2(
             Random.Range(bounds.min.x, bounds.max.x),
             Random.Range(bounds.min.y, bounds.max.y)
         );
-        return Instantiate(_bossPart, pos, Quaternion.identity);
+        return Instantiate(_bossPart[n], pos, Quaternion.identity);
     }
 
     // Despawns the boss' attacks
@@ -76,10 +102,10 @@ public class ArcherBoss : MonoBehaviour
     // Despawns the boss' attackable parts
     public void DespawnBossParts()
     {
-        GameObject[] _bossParts;
-        _bossParts = GameObject.FindGameObjectsWithTag("BossPart");
+        GameObject[] bossParts;
+        bossParts = GameObject.FindGameObjectsWithTag("BossPart");
 
-        foreach(GameObject bossPart in _bossParts)
+        foreach(GameObject bossPart in bossParts)
         {
             Destroy(bossPart);
         }

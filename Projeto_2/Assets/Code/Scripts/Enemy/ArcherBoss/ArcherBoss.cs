@@ -23,17 +23,17 @@ public class ArcherBoss : MonoBehaviour
     [SerializeField] private GameObject _attackPattern;
 
     private StateMachine _stateMachine;
-    public float _currentHealth;
+    public float currentHealth;
     
     public void Awake()
     {
-        _currentHealth = _maxHealth;
+        currentHealth = _maxHealth;
         _slider.value = CalculateHealth();
         _stateMachine = new StateMachine(); // Instantiates the state machine
 
         // Instantiates the states
         var initialDialogue = new InitialDialogue(_dialogueHolder);
-        var attackPattern1 = new AttackPattern1(this, _attackPattern, _currentHealth);
+        var attackPattern1 = new AttackPattern1(this, _attackPattern, currentHealth);
         var dialogue1 = new Dialogue1(_dialogueHolder);
         var bossDefeated = new BossDefeated(this);
 
@@ -42,7 +42,7 @@ public class ArcherBoss : MonoBehaviour
         Path(attackPattern1, dialogue1, TimeHasPassed());
         Path(dialogue1, attackPattern1, Dialogue1Finished());
 
-        _stateMachine.AddAnyTransition(bossDefeated, () => (_currentHealth <= 0));
+        _stateMachine.AddAnyTransition(bossDefeated, () => (currentHealth <= 0));
 
         // Sets initial state
         _stateMachine.SetState(initialDialogue);
@@ -61,14 +61,14 @@ public class ArcherBoss : MonoBehaviour
     {
         _stateMachine.Tick(); // Calls Tick() function from current state
 
-        if (_currentHealth > _maxHealth)
+        if (currentHealth > _maxHealth)
         {
-            _currentHealth = _maxHealth;
+            currentHealth = _maxHealth;
         }
 
-        if (_currentHealth < 0)
+        if (currentHealth < 0)
         {
-            _currentHealth = 0;
+            currentHealth = 0;
         }
 
         _slider.value = CalculateHealth();
@@ -77,7 +77,7 @@ public class ArcherBoss : MonoBehaviour
     // returns float to control healthbar slider
     public float CalculateHealth()
     {
-        return _currentHealth/_maxHealth;
+        return currentHealth/_maxHealth;
     }
 
     // Spawns attackable parts of the boss

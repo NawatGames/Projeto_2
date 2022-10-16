@@ -6,6 +6,7 @@ public class PlayerWeapon : MonoBehaviour
 {
     [SerializeField] private float _weaponPlayerDistance = 0.8f;
     [SerializeField] private float _swingSpeed = 360.0f;
+    [SerializeField] public float _weaponDamage = 20.0f;
 
     private GameObject player;
     private float swingDuration;

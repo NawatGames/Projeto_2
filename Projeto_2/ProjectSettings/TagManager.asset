@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BossAttack
   - BossPart
+  - PlayerWeapon
   layers:
   - Default
   - TransparentFX

@@ -5,9 +5,12 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public PlayerMovement player;
+    public Shield shield;
+    public Dash dash;
     public int healthEnemy = 15;
     private int activeHealthEnemy;
     public HealthBar healthBar;
+
 
     void Start()
     {
@@ -19,7 +22,7 @@ public class Enemy : MonoBehaviour
     {
         if(collision.gameObject.TryGetComponent<PlayerMovement>(out PlayerMovement enemyComponent))
         {
-            if(!player.shieldPlayer && !player.dashShieldPlayer)
+            if(!shield.shieldPlayer && !dash.dashShieldPlayer)
             {
             enemyComponent.TakeDamage(3);
             }

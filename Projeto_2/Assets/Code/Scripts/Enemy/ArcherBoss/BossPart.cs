@@ -21,7 +21,6 @@ public class BossPart : MonoBehaviour
         {
             if (spawnInvincibilityTime <= 0)
             {
-                currentHealth -= other.gameObject.GetComponent<PlayerWeapon>()._weaponDamage;
                 this.GetComponentInParent<ArcherBoss>().currentHealth--;
             }
         }

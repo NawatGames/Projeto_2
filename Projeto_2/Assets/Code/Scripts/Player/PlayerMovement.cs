@@ -23,13 +23,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool _facingRight = false; // Is the player sprite facing to the right now?
     [SerializeField] public bool _attacking = false; // Is the plpayer attacking now?
 
-    private GameObject _playerWeapon;
-
     // Start is called before the first frame update
     void Start()
     {
         activeMoveSpeed = moveSpeed;
-        _playerWeapon = transform.Find("Weapon").gameObject;
     }
 
     // Update is called once per frame
@@ -56,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             _attacking = true;
-            _playerWeapon.SetActive(true);
         }
 
         if(Input.GetKeyDown(KeyCode.LeftShift)) //if space is pressed...

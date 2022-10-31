@@ -7,24 +7,11 @@ using UnityEngine.UI;
 public class BossPart : MonoBehaviour
 {
     [SerializeField] private float _maxHealth = 20f;
-    [SerializeField] private string _attackTag = "PlayerWeapon";
     [SerializeField] private Slider _slider;
     [SerializeField] private float _spawnInvincibilityTime = 0.2f;
 
-    private float currentHealth;
-    private float spawnInvincibilityTime;
-
-    // Calculates damage when attacked
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == _attackTag)
-        {
-            if (spawnInvincibilityTime <= 0)
-            {
-                this.GetComponentInParent<ArcherBoss>().currentHealth--;
-            }
-        }
-    }
+    [HideInInspector] public float currentHealth;
+    [HideInInspector] private float spawnInvincibilityTime;
 
     // Sets health to maxhealth and adjusts the healthbar slider
     public void Awake()
@@ -52,6 +39,17 @@ public class BossPart : MonoBehaviour
         }
     }
 
+    // Applies damage to the boss part game object and its parent (Archer boss) if exists
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (transform.parent != null)
+        {
+            this.GetComponentInParent<ArcherBoss>().currentHealth -= damage;
+        }
+    }
+
+    // Calculates health for slider.
     public float CalculateHealth()
     {
         return currentHealth/_maxHealth;

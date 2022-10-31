@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 8581029820716225800}
   - component: {fileID: 7085951908381686495}
   - component: {fileID: 1279665405970426298}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BossPart
   m_TagString: BossPart
   m_Icon: {fileID: 0}
@@ -335,9 +335,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 2
-  _attackTag: PlayerWeapon
   _slider: {fileID: 8586460204049022848}
   _spawnInvincibilityTime: 0.2
+  currentHealth: 0
 --- !u!1 &5956583718932927908
 GameObject:
   m_ObjectHideFlags: 0

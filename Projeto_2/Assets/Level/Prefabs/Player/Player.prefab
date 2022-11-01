@@ -247,13 +247,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a182a4106b01dea408cf25bf075faa19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 0
+  attackCooldown: 0.4
   attackPos: {fileID: 8917655219748797622}
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 0
-  attackRange: 0
-  damage: 0
+    m_Bits: 64
+  attackRangeX: 1.05
+  attackRangeY: 2.33
+  damage: 4.82
 --- !u!1 &7346006949650955949
 GameObject:
   m_ObjectHideFlags: 0

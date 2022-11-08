@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class HomingMissile : MonoBehaviour
 {
-    [SerializeField] private float bulletSpeed = 10f;
-    [SerializeField] private float rotateSpeed = 200f;
+    public float bulletSpeed = 10f;
+    public float rotationSpeed = 200f;
     private Transform _player;
     private Rigidbody2D _rb;
 
@@ -23,7 +23,7 @@ public class HomingMissile : MonoBehaviour
         var right = transform.right;
         var rotateAmount = Vector3.Cross(direction, right).z;
 
-        _rb.angularVelocity = -rotateAmount * rotateSpeed;
+        _rb.angularVelocity = -rotateAmount * rotationSpeed;
         _rb.velocity = right * bulletSpeed;
     }
 }

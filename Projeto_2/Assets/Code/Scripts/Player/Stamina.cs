@@ -7,8 +7,8 @@ public class Stamina : MonoBehaviour
 {
     public Slider slider;
     public Image fill;
-
-    public PlayerMovement player;
+    public Shield shield;
+    public GameObject canvasStamina; // Assign in inspector
 
     public void SetStaminaPlayer(float stamina)
     {

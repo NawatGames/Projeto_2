@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public int healthEnemy = 15;
     private int activeHealthEnemy;
     public HealthBar healthBar;
+    public Attack attack;
 
 
     void Start()
@@ -20,11 +21,11 @@ public class Enemy : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.TryGetComponent<PlayerMovement>(out PlayerMovement enemyComponent))
+        if(collision.gameObject.TryGetComponent<Attack>(out Attack enemyComponent))
         {
             if(!shield.shieldPlayer && !dash.dashShieldPlayer)
             {
-            enemyComponent.TakeDamage(3);
+                enemyComponent.TakeDamage(3);
             }
         }
     }

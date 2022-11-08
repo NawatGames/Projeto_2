@@ -9,18 +9,20 @@ public class Dash : MonoBehaviour
     public float dashCooldown = 1f;  //time remaining to use it again
     private float dashCounter; //state of time for dashing time
     private float dashCoolCounter; //state of time for time remaining to use dash again
-    [SerializeField] private GameObject dashShieldImage;
     [SerializeField] TrailRenderer tr; //trail render to design impulse
     public bool dashShieldPlayer;
 
     public PlayerMovement movement;
     public Shield shield;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         dashShieldPlayer = false;
-        tr.emitting = false; 
+        tr.emitting = false;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,20 +37,20 @@ public class Dash : MonoBehaviour
                 {
                     movement.activeMoveSpeed = dashSpeed;
                     movement.rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation ;
-                    dashShieldImage.SetActive(true);
                     dashShieldPlayer = true;
                     tr.emitting = true;
-                    dashCounter = dashTime;   
+                    dashCounter = dashTime;
+                    animator.SetBool("Dashing", true);
                 }
 
                 if(movement.moveInput.x == 0f)
                 {
                     movement.activeMoveSpeed = dashSpeed;
                     movement.rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-                    dashShieldImage.SetActive(true);
                     dashShieldPlayer = true;
                     tr.emitting = true;
                     dashCounter = dashTime;
+                    animator.SetBool("Dashing", true);
                 }
         
             }
@@ -62,10 +64,11 @@ public class Dash : MonoBehaviour
             {
                 movement.activeMoveSpeed = movement.moveSpeed;
                 movement.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-                dashShieldImage.SetActive(false);
                 dashShieldPlayer = false;
                 tr.emitting = false;
                 dashCoolCounter = dashCooldown;
+                animator.SetBool("Dashing", false);
+                animator.SetBool("Dashing2", true);
             }
         }
 

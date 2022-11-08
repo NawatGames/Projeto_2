@@ -123,25 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &196520458 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1729316654184467138, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
-  m_PrefabInstance: {fileID: 469419689}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &196520462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196520458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f77209ba4d38fc64f8925a0c660ee995, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _weaponPlayerDistance: 0.8
-  _swingSpeed: 720
 --- !u!1001 &469419689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -208,6 +189,34 @@ PrefabInstance:
     - target: {fileID: 2726972776558534271, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610046962416218072, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610046962416218072, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: attackRange
+      value: 0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610046962416218072, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: attackRangeX
+      value: 1.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610046962416218072, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: attackRangeY
+      value: 2.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610046962416218072, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: attackCooldown
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610046962416218072, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: whatIsEnemy.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8917655219748797622, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.222
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}

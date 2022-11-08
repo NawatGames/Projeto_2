@@ -9,14 +9,17 @@ public class Shield : MonoBehaviour
     public float shieldCooldown = 2.5f;
     private float shieldCounter;
     private float shieldCoolCounter;
-    [SerializeField] private GameObject shieldImage;
+
     public Stamina stamina;
     public PlayerMovement movement;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         shieldPlayer = false;
+        stamina.canvasStamina.SetActive(false);
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,10 +30,11 @@ public class Shield : MonoBehaviour
             if(shieldCoolCounter <= 0 && shieldCounter <= 0)
             {
                 shieldPlayer = true;
+                stamina.canvasStamina.SetActive(true);
                 movement.activeMoveSpeed = movement.moveSpeed / 4;
-                shieldImage.SetActive(true);
                 shieldCounter = shieldTime;
                 stamina.SetStaminaPlayer(shieldTime);
+                animator.SetBool("Shielding", true);
             }
         }
 
@@ -42,10 +46,10 @@ public class Shield : MonoBehaviour
             if(shieldCounter <= 0)
             {
                 shieldPlayer = false;
-                shieldImage.SetActive(false);
                 movement.activeMoveSpeed = movement.moveSpeed;
                 shieldCoolCounter = shieldCooldown;
                 stamina.SetStaminaPlayer(shieldCooldown);
+                animator.SetBool("Shielding", false);
             }
         }
 

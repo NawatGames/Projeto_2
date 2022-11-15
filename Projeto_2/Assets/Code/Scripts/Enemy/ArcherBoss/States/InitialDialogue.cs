@@ -1,22 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InitialDialogue : IState
 {
     public bool finished;
+    private readonly ArcherBoss _archerBoss;
     private readonly GameObject _dialogueHolder;
 
     // Constructor
-    public InitialDialogue(GameObject dialogueHolder)
+    public InitialDialogue(ArcherBoss archerBoss, GameObject dialogueHolder)
     {
+        _archerBoss = archerBoss;
         _dialogueHolder = dialogueHolder;
     }
 
     public void Tick()
     {
         // If dialogue line has finished appearing, finished = true
-        if (!_dialogueHolder.transform.GetChild(0).gameObject.activeSelf)
+        if (!_dialogueHolder.gameObject.activeSelf)
         {
             finished = true;
         }
@@ -26,7 +26,7 @@ public class InitialDialogue : IState
     public void OnEnter()
     {
         finished = false;
-        _dialogueHolder.transform.GetChild(0).gameObject.SetActive(true);
+        _archerBoss.Dialogue("Initial dialogue");
     }
 
     // Clean up

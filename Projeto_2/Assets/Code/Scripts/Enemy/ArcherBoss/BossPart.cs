@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +7,7 @@ public class BossPart : MonoBehaviour
     [SerializeField] private float _maxHealth = 20f;
     [SerializeField] private Slider _slider;
     [SerializeField] private float _spawnInvincibilityTime = 0.2f;
+    [SerializeField] private string destroyedDialogue;
 
     [HideInInspector] public float currentHealth;
     [HideInInspector] private float spawnInvincibilityTime;
@@ -30,6 +29,10 @@ public class BossPart : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            if (transform.parent != null)
+            {
+                this.GetComponentInParent<ArcherBoss>().Dialogue(destroyedDialogue);
+            }
             Destroy(this.gameObject);
         }
 

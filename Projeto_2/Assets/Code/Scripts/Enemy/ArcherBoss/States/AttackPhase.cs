@@ -1,21 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackPattern1 : IState
+public class AttackPhase : IState
 {
     public float TimePassed;
     private readonly ArcherBoss _archerBoss;
     private readonly GameObject _attackPattern;
-    private readonly float _currentHealth;
     private GameObject bossPart;
 
     // Constructor
-    public AttackPattern1(ArcherBoss archerBoss, GameObject attackPattern, float currentHealth)
+    public AttackPhase(ArcherBoss archerBoss, GameObject attackPattern)
     {
         _archerBoss = archerBoss;
         _attackPattern = attackPattern;
-        _currentHealth = currentHealth;
     }
 
     // Checks time passed since active
@@ -27,6 +23,7 @@ public class AttackPattern1 : IState
         {
             bossPart = _archerBoss.SpawnBossPart(_archerBoss.GetComponent<BoxCollider2D>().bounds, 0);
             bossPart.transform.SetParent(_archerBoss.transform);
+            TimePassed -= 5f;
         }
     }
 
@@ -42,8 +39,10 @@ public class AttackPattern1 : IState
     // Clean up
     public void OnExit()
     {
+        TimePassed = 0f;
         _archerBoss.DespawnBossAttack();
         _archerBoss.DespawnBossParts();
         _attackPattern.SetActive(false);
     }
 }
+

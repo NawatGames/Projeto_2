@@ -337,6 +337,7 @@ MonoBehaviour:
   _maxHealth: 2
   _slider: {fileID: 8586460204049022848}
   _spawnInvincibilityTime: 0.2
+  destroyedDialogue: Boss Part destroyed
   currentHealth: 0
 --- !u!1 &5956583718932927908
 GameObject:

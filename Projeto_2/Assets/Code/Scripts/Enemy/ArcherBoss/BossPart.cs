@@ -6,7 +6,7 @@ using UnityEngine.UI;
 // Class to handle the parts of boss that appear for the player to attack
 public class BossPart : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth = 20;
+    [SerializeField] private float _maxHealth = 20f;
     //[SerializeField] private string _attackTag = "PlayerWeapon";
     [SerializeField] private Slider _slider;
     [SerializeField] private float _spawnInvincibilityTime = 0.2f;

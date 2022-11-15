@@ -5,15 +5,21 @@ using UnityEngine.EventSystems;
 
 public class Attack : MonoBehaviour
 {
-    public int healthPlayer = 15;
-    private int activeHealthPlayer;
-    private bool isPressed;
+    private float attackTime;
+    public float attackCooldown;
 
-    public HealthBar healthBar;
-    public Shield shield;
+    public Transform attackPosition;
+    public LayerMask enemies;
+    public float attackRange;
+    public int damage;
     public Animator animator;
 
-    // Start is called before the first frame update
+    public HealthBar healthBar;
+    public int healthPlayer = 15;
+    private int activeHealthPlayer;
+
+    public Shield shield;
+
     void Start()
     {
         activeHealthPlayer = healthPlayer;
@@ -24,44 +30,28 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.C))
+        if(attackTime <= 0)
         {
-            animator.SetBool("Attacking", true);
-            //StartCoroutine(TimerRoutine());
+            if(Input.GetKey(KeyCode.C))
+            {
+                animator.SetBool("Attacking", true);
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, enemies);
+                for (int i = 0; i < enemiesToDamage.Length; i++)
+                {
+                    enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                }
+            }
+            else
+            {
+                animator.SetBool("Attacking", false);
+            }
+            attackTime = attackCooldown;
         }
-        if(Input.GetKeyDown(KeyCode.V))
+        else
         {
-            animator.SetBool("Attacking", false);
-            //StartCoroutine(TimerRoutine());
+            attackTime -= Time.deltaTime;
         }
-        
-      
     }
- 
-    private IEnumerator TimerRoutine()
-    {
-      //code can be executed anywhere here before this next statement 
-      yield return new WaitForSeconds(5); //code pauses for 5 seconds
-     //code resumes after the 5 seconds and exits if there is nothing else to run
- 
-    }
-    
-
-    //public void OnUpdateSelected(BaseEventData data)
-    //      {
-    //          if (isPressed)
-    //          {
-    //           attack = true;
-    //          }
-    //      }
-    //      public void OnPointerDown(PointerEventData data)
-    //      {
-    //          isPressed = true;
-    //      }
-    //      public void OnPointerUp(PointerEventData data)
-    //      {
-    //          isPressed = false;
-    //      }
 
     public void TakeDamage(int damage)
     {
@@ -78,7 +68,13 @@ public class Attack : MonoBehaviour
     {
         if(((collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent)) && (shield.shieldPlayer == true)))
         {
-            enemyComponent.TakeDamage(5);
+            enemyComponent.TakeDamage(3);
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPosition.position, attackRange);
     }
 }

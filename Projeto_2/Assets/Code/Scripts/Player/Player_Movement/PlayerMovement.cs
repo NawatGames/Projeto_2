@@ -11,8 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [Header ("State control")]
     [SerializeField] public bool _facingRight = true; // Is the player sprite facing to the right now?
     
-    public Shield shield;
-    private Dash dash;
     public Animator animator;
 
     // Start is called before the first frame update

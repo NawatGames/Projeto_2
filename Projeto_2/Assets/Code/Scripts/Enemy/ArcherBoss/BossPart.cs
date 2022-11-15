@@ -4,12 +4,12 @@ using UnityEngine.UI;
 // Class to handle the parts of boss that appear for the player to attack
 public class BossPart : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth = 20f;
+    [SerializeField] private int _maxHealth = 20;
     [SerializeField] private Slider _slider;
     [SerializeField] private float _spawnInvincibilityTime = 0.2f;
     [SerializeField] private string destroyedDialogue;
 
-    [HideInInspector] public float currentHealth;
+    [HideInInspector] public int currentHealth;
     [HideInInspector] private float spawnInvincibilityTime;
 
     // Sets health to maxhealth and adjusts the healthbar slider
@@ -43,7 +43,7 @@ public class BossPart : MonoBehaviour
     }
 
     // Applies damage to the boss part game object and its parent (Archer boss) if exists
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         if (transform.parent != null)

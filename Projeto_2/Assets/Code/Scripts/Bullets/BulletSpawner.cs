@@ -19,10 +19,11 @@ public class BulletSpawner : MonoBehaviour
 
         foreach (Transform tr in transform)
         {
+            // Creates a list of points, based on children Transforms
             _spawnLocations.Add(tr);
         }
         
-        _delay = 1 / fireRate; 
+        _delay = Mathf.Clamp((1 / fireRate), 0, 1); 
     }
 
     private void Update()

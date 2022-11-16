@@ -8,7 +8,7 @@ public class CollisionDetection : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         var player = col.gameObject;
-    
+        
         if  (player.CompareTag("Player"))
         { 
             Debug.Log(damage+" damage!");

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6636933411550717396}
   - component: {fileID: 6981596971919714380}
   m_Layer: 0
-  m_Name: Triple Shot
+  m_Name: Multi Shot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 4924276723450349073, guid: 2d64d6737a7a74441b3e1cb8a119343d, type: 3}
-  delay: 0.25
-  amountOfBullets: 10
+  delay: 0.2
+  amountOfBullets: 3

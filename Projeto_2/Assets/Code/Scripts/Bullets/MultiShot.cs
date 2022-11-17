@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class TripleShot : MonoBehaviour
+public class MultiShot : MonoBehaviour
 {
     public GameObject objectToSpawn;
     public float delay = 0.5f;

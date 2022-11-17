@@ -1,28 +1,37 @@
 fileFormatVersion: 2
-guid: 5a0d714879398c8408daa0a960523350
+guid: 3c715ee2cb2028d44aad9a3f21b87c25
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5783900571564375681
-    second: "demonio_anima\xE7\xE3o_teletransporte(32x32)_0"
+      213: 4913503261953717336
+    second: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_0"
   - first:
-      213: -5198044028031725525
-    second: "demonio_anima\xE7\xE3o_teletransporte(32x32)_1"
+      213: 2506367404495762060
+    second: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_1"
   - first:
-      213: -897988188206485095
-    second: "demonio_anima\xE7\xE3o_teletransporte(32x32)_2"
+      213: 5266241589563036904
+    second: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_2"
   - first:
-      213: 3173921258816604804
-    second: "demonio_anima\xE7\xE3o_teletransporte(32x32)_3"
+      213: -2645421843533351811
+    second: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_4"
   - first:
-      213: -1953845647970259765
-    second: "demonio_anima\xE7\xE3o_teletransporte(32x32)_4"
+      213: 785613209274297047
+    second: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_4"
   - first:
-      213: -715151848086349776
-    second: "demonio_anima\xE7\xE3o_teletransporte(32x32)_5"
+      213: -5524347428179312051
+    second: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_4"
   - first:
-      213: -619633800375917256
-    second: "demonio_anima\xE7\xE3o_teletransporte(32x32)_6"
+      213: -7675568123441749416
+    second: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_4"
+  - first:
+      213: -1543193095261668394
+    second: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_4"
+  - first:
+      213: -3420204884754103599
+    second: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_4"
+  - first:
+      213: -3897976230848064705
+    second: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_4"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -53,7 +62,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -89,7 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,7 +110,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,7 +133,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "demonio_anima\xE7\xE3o_teletransporte(32x32)_0"
+      name: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_0"
       rect:
         serializedVersion: 2
         x: 0
@@ -138,14 +147,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18ef548ecea844050800000000000000
-      internalID: 5783900571564375681
+      spriteID: 85479731f25403440800000000000000
+      internalID: 4913503261953717336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "demonio_anima\xE7\xE3o_teletransporte(32x32)_1"
+      name: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_1"
       rect:
         serializedVersion: 2
         x: 32
@@ -159,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2014563f76dcd7b0800000000000000
-      internalID: -5198044028031725525
+      spriteID: c82769500e768c220800000000000000
+      internalID: 2506367404495762060
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "demonio_anima\xE7\xE3o_teletransporte(32x32)_2"
+      name: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_2"
       rect:
         serializedVersion: 2
         x: 64
@@ -180,14 +189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 991b4752084b983f0800000000000000
-      internalID: -897988188206485095
+      spriteID: 8e41b4fe2d2751940800000000000000
+      internalID: 5266241589563036904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "demonio_anima\xE7\xE3o_teletransporte(32x32)_3"
+      name: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_3"
       rect:
         serializedVersion: 2
         x: 96
@@ -201,14 +210,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48a03d891980c0c20800000000000000
-      internalID: 3173921258816604804
+      spriteID: d74b22f69d2994bd0800000000000000
+      internalID: -2645421843533351811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "demonio_anima\xE7\xE3o_teletransporte(32x32)_4"
+      name: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_4"
       rect:
         serializedVersion: 2
         x: 128
@@ -222,14 +231,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcc2ace2cbb82e4e0800000000000000
-      internalID: -1953845647970259765
+      spriteID: 7da26ad2d0f07ea00800000000000000
+      internalID: 785613209274297047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "demonio_anima\xE7\xE3o_teletransporte(32x32)_5"
+      name: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_5"
       rect:
         serializedVersion: 2
         x: 160
@@ -243,14 +252,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0385956ee254316f0800000000000000
-      internalID: -715151848086349776
+      spriteID: d42878788439553b0800000000000000
+      internalID: -5524347428179312051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "demonio_anima\xE7\xE3o_teletransporte(32x32)_6"
+      name: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_6"
       rect:
         serializedVersion: 2
         x: 192
@@ -264,8 +273,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 835a4cd675e9667f0800000000000000
-      internalID: -619633800375917256
+      spriteID: 85261f86577ea7590800000000000000
+      internalID: -7675568123441749416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_7"
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dbb7195e0a759ae0800000000000000
+      internalID: -1543193095261668394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_8"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d20d2147cdf880d0800000000000000
+      internalID: -3420204884754103599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "demonio_anima\xE7\xE3o_lado_DEFESA(32x32)_9"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f339269354b97e9c0800000000000000
+      internalID: -3897976230848064705
       vertices: []
       indices: 
       edges: []

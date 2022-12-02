@@ -1,28 +1,25 @@
 fileFormatVersion: 2
-guid: 39590ce63b1cb3241bad1504793c802f
+guid: 5377a04c25babb7458ab615cc0566fa2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4400975387294148517
-    second: "demonio_anima\xE7\xE3o_lado_andando(32x32)_0"
+      213: 4186432764422836127
+    second: "demonio_anima\xE7\xE3o_ataque_transi\xE7\xE3o(56x52)_0"
   - first:
-      213: -2329721810814774115
-    second: "demonio_anima\xE7\xE3o_lado_andando(32x32)_1"
+      213: -5313675837458360092
+    second: "demonio_anima\xE7\xE3o_ataque_transi\xE7\xE3o(56x52)_1"
   - first:
-      213: 6114432189139782608
-    second: "demonio_anima\xE7\xE3o_lado_andando(32x32)_2"
+      213: 977102517658604786
+    second: "demonio_anima\xE7\xE3o_ataque_transi\xE7\xE3o(56x52)_2"
   - first:
-      213: -2174276518495081788
-    second: "demonio_anima\xE7\xE3o_lado_andando(32x32)_3"
+      213: -8008054389831614580
+    second: "demonio_anima\xE7\xE3o_ataque_transi\xE7\xE3o(56x52)_3"
   - first:
-      213: -4489064889636037772
-    second: "demonio_anima\xE7\xE3o_lado_andando(32x32)_4"
+      213: 6068378603828125193
+    second: "demonio_anima\xE7\xE3o_ataque_transi\xE7\xE3o(56x52)_4"
   - first:
-      213: 8986233111151332650
-    second: "demonio_anima\xE7\xE3o_lado_andando(32x32)_4"
-  - first:
-      213: 5594680174757388064
-    second: "demonio_anima\xE7\xE3o_lado_andando(32x32)_4"
+      213: -9044125267751740246
+    second: "demonio_anima\xE7\xE3o_ataque_transi\xE7\xE3o(56x52)_5"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -53,7 +50,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -89,7 +86,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,7 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,148 +121,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "demonio_anima\xE7\xE3o_lado_andando(32x32)_0"
+      name: "demonio_anima\xE7\xE3o_ataque_transi\xE7\xE3o(56x52)_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 56
+        height: 52
+      alignment: 9
+      pivot: {x: 0.29, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a7a7e02cc7631d30800000000000000
-      internalID: 4400975387294148517
+      spriteID: f9fca772b62391a30800000000000000
+      internalID: 4186432764422836127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "demonio_anima\xE7\xE3o_lado_andando(32x32)_1"
+      name: "demonio_anima\xE7\xE3o_ataque_transi\xE7\xE3o(56x52)_1"
       rect:
         serializedVersion: 2
-        x: 32
+        x: 56
         y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 56
+        height: 52
+      alignment: 9
+      pivot: {x: 0.29, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d94d7e04b5a2bafd0800000000000000
-      internalID: -2329721810814774115
+      spriteID: 4e8d7b89af70246b0800000000000000
+      internalID: -5313675837458360092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "demonio_anima\xE7\xE3o_lado_andando(32x32)_2"
+      name: "demonio_anima\xE7\xE3o_ataque_transi\xE7\xE3o(56x52)_2"
       rect:
         serializedVersion: 2
-        x: 64
+        x: 112
         y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 56
+        height: 52
+      alignment: 9
+      pivot: {x: 0.29, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0db04ec2ea3dad450800000000000000
-      internalID: 6114432189139782608
+      spriteID: 2f45e2a109d5f8d00800000000000000
+      internalID: 977102517658604786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "demonio_anima\xE7\xE3o_lado_andando(32x32)_3"
+      name: "demonio_anima\xE7\xE3o_ataque_transi\xE7\xE3o(56x52)_3"
       rect:
         serializedVersion: 2
-        x: 96
+        x: 168
         y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 56
+        height: 52
+      alignment: 9
+      pivot: {x: 0.29, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4caa0a7b60b63d1e0800000000000000
-      internalID: -2174276518495081788
+      spriteID: c8f341006fcadd090800000000000000
+      internalID: -8008054389831614580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "demonio_anima\xE7\xE3o_lado_andando(32x32)_4"
+      name: "demonio_anima\xE7\xE3o_ataque_transi\xE7\xE3o(56x52)_4"
       rect:
         serializedVersion: 2
-        x: 128
+        x: 224
         y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 56
+        height: 52
+      alignment: 9
+      pivot: {x: 0.29, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47bd0975443a3b1c0800000000000000
-      internalID: -4489064889636037772
+      spriteID: 90e91c34036373450800000000000000
+      internalID: 6068378603828125193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "demonio_anima\xE7\xE3o_lado_andando(32x32)_5"
+      name: "demonio_anima\xE7\xE3o_ataque_transi\xE7\xE3o(56x52)_5"
       rect:
         serializedVersion: 2
-        x: 160
+        x: 280
         y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 56
+        height: 52
+      alignment: 9
+      pivot: {x: 0.29, y: 0.65}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2d470b476385bc70800000000000000
-      internalID: 8986233111151332650
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "demonio_anima\xE7\xE3o_lado_andando(32x32)_6"
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02f95502afb44ad40800000000000000
-      internalID: 5594680174757388064
+      spriteID: aacd58f9cffcc7280800000000000000
+      internalID: -9044125267751740246
       vertices: []
       indices: 
       edges: []

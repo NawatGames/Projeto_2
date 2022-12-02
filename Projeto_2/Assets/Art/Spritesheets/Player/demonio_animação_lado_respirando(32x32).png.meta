@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: 9eb89bff6d133c248b1eba566275e85f
+guid: 5cc84c337c9935a4f99753f20bf77157
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4734126442919420722
-    second: "arqueiro_anima\xE7\xE3o_PARADO(32x32)_0"
+      213: 4088245260547612994
+    second: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_0"
   - first:
-      213: 8569133755848245329
-    second: "arqueiro_anima\xE7\xE3o_PARADO(32x32)_1"
+      213: -3364684016152931647
+    second: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_1"
   - first:
-      213: 1775962686782831506
-    second: "arqueiro_anima\xE7\xE3o_PARADO(32x32)_2"
+      213: -3744477680090754196
+    second: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_2"
   - first:
-      213: 318801027546099210
-    second: "arqueiro_anima\xE7\xE3o_PARADO(32x32)_3"
+      213: -1715855459083046338
+    second: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_3"
+  - first:
+      213: -497863671665123922
+    second: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_4"
+  - first:
+      213: 7101611077378924781
+    second: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_5"
+  - first:
+      213: -2674802495745649046
+    second: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_6"
+  - first:
+      213: 8555678294809677699
+    second: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_7"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -44,7 +56,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -80,7 +92,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -92,7 +104,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "arqueiro_anima\xE7\xE3o_PARADO(32x32)_0"
+      name: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_0"
       rect:
         serializedVersion: 2
         x: 0
@@ -129,14 +141,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecc110825110d4eb0800000000000000
-      internalID: -4734126442919420722
+      spriteID: 2416d9d676d5cb830800000000000000
+      internalID: 4088245260547612994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "arqueiro_anima\xE7\xE3o_PARADO(32x32)_1"
+      name: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_1"
       rect:
         serializedVersion: 2
         x: 32
@@ -150,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 150c42eefbdabe670800000000000000
-      internalID: 8569133755848245329
+      spriteID: 1c215c3d6bd3e41d0800000000000000
+      internalID: -3364684016152931647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "arqueiro_anima\xE7\xE3o_PARADO(32x32)_2"
+      name: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_2"
       rect:
         serializedVersion: 2
         x: 64
@@ -171,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29bf90877ac75a810800000000000000
-      internalID: 1775962686782831506
+      spriteID: c63dfc89361f80cc0800000000000000
+      internalID: -3744477680090754196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "arqueiro_anima\xE7\xE3o_PARADO(32x32)_3"
+      name: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_3"
       rect:
         serializedVersion: 2
         x: 96
@@ -192,8 +204,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0e2ae078db9c6400800000000000000
-      internalID: 318801027546099210
+      spriteID: e32b07b0d8e0038e0800000000000000
+      internalID: -1715855459083046338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_4"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ead14dfd0ab3719f0800000000000000
+      internalID: -497863671665123922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_5"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de0662026adfd8260800000000000000
+      internalID: 7101611077378924781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_6"
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6690c44d4131ead0800000000000000
+      internalID: -2674802495745649046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "demonio_anima\xE7\xE3o_lado_respirando(32x32)_7"
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f86a64410ebb670800000000000000
+      internalID: 8555678294809677699
       vertices: []
       indices: 
       edges: []

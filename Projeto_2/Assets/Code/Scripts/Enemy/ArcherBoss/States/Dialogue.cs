@@ -5,12 +5,14 @@ public class Dialogue : IState
     public bool finished;
     private readonly ArcherBoss _archerBoss;
     private readonly GameObject _dialogueHolder;
+    private readonly string _dialogueText;
 
     // Constructor
-    public Dialogue(ArcherBoss archerBoss, GameObject dialogueHolder)
+    public Dialogue(ArcherBoss archerBoss, GameObject dialogueHolder, string dialogueText)
     {
         _archerBoss = archerBoss;
         _dialogueHolder = dialogueHolder;
+        _dialogueText = dialogueText;
     }
 
     public void Tick()
@@ -26,7 +28,7 @@ public class Dialogue : IState
     public void OnEnter()
     {
         finished = false;
-        _archerBoss.Dialogue("In between phase");
+        _archerBoss.Dialogue(_dialogueText);
     }
 
     // Clean up

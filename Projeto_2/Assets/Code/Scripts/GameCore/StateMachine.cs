@@ -51,6 +51,11 @@ public class StateMachine
       _currentState.OnEnter();
    }
 
+   public string GetState()
+   {
+      return _currentState.ToString();
+   }
+
    // Adds new transition with defined pathing (has a from and next state well defined) and a condition for transition.
    public void AddTransition(IState previousState, IState nextState, Func<bool> predicate)
    {

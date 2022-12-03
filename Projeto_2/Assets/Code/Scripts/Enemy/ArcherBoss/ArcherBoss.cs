@@ -34,14 +34,27 @@ public class ArcherBoss : MonoBehaviour
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //                                               Instantiates the states                                               //
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // initial Dialogue -> Represents the first text line the boss will say to the player
+        // dialogue -> Text line to be shown from time to time during a phase
+        // phase -> Represents the moment when the boss starts attacking the player
+        // transition -> State to change to next phase
 
-        var initialDialogue = new InitialDialogue(this, _dialogueHolder);
-        var dialogue = new Dialogue(this, _dialogueHolder);
-        var initialPhase = new AttackPhase(this, _attackPattern[0]);
-        var phase1 = new AttackPhase(this, _attackPattern[1]);
-        var phase2 = new AttackPhase(this, _attackPattern[2]);
-        var phase3 = new AttackPhase(this, _attackPattern[3]);
-        var phase4 = new AttackPhase(this, _attackPattern[4]);
+        var initialDialogue = new Dialogue(this, _dialogueHolder, "Game starting...");
+
+        var dialogue1 = new Dialogue(this, _dialogueHolder, "Phase 1!");
+        var dialogue2 = new Dialogue(this, _dialogueHolder, "Phase 2!");
+        var dialogue3 = new Dialogue(this, _dialogueHolder, "Phase 3!");
+        var dialogue4 = new Dialogue(this, _dialogueHolder, "Phase 4!");
+
+        var phase1 = new AttackPhase(this, _attackPattern[0]);
+        var phase2 = new AttackPhase(this, _attackPattern[1]);
+        var phase3 = new AttackPhase(this, _attackPattern[2]);
+        var phase4 = new AttackPhase(this, _attackPattern[3]);
+
+        var transitionToPhase2 = new Dialogue(this, _dialogueHolder, "To Phase 2!");
+        var transitionToPhase3 = new Dialogue(this, _dialogueHolder, "To Phase 3!");
+        var transitionToPhase4 = new Dialogue(this, _dialogueHolder, "To Phase 4!");
+
         var bossDefeated = new BossDefeated(this);
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -49,16 +62,25 @@ public class ArcherBoss : MonoBehaviour
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // Named paths transitions
-        Path(initialDialogue, initialPhase, InitialDialogueFinished());
-        Path(initialPhase, dialogue, InitialPhaseFinished());
-        Path(dialogue, phase1, ToPhase1());
-        Path(phase1, dialogue, Phase1Finished());
-        Path(dialogue, phase2, ToPhase2());
-        Path(phase2, dialogue, Phase2Finished());
-        Path(dialogue, phase3, ToPhase3());
-        Path(phase3, dialogue, Phase3Finished());
-        Path(dialogue, phase4, ToPhase4());
-        Path(phase4, dialogue, Phase4Finished());
+        Path(initialDialogue, phase1, InitialDialogueFinished());
+
+        Path(phase1, dialogue1, Attack1Finished());
+        Path(dialogue1, phase1, Dialogue1Finished());
+        Path(phase1, transitionToPhase2, Transition1());
+        Path(transitionToPhase2, phase2, EndOfTransition1());
+
+        Path(phase2, dialogue2, Attack2Finished());
+        Path(dialogue2, phase2, Dialogue2Finished());
+        Path(phase2, transitionToPhase3, Transition2());
+        Path(transitionToPhase3, phase3, EndOfTransition2());
+        
+        Path(phase3, dialogue3, Attack3Finished());
+        Path(dialogue3, phase3, Dialogue3Finished());
+        Path(phase3, transitionToPhase4, Transition3());
+        Path(transitionToPhase4, phase4, EndOfTransition3());
+        
+        Path(phase4, dialogue4, Attack4Finished());
+        Path(dialogue4, phase4, Dialogue4Finished());
 
         // Unnamed paths transitions
         _stateMachine.AddAnyTransition(bossDefeated, () => (currentHealth <= 0));
@@ -73,15 +95,24 @@ public class ArcherBoss : MonoBehaviour
         //                                                     Conditions                                                      //
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Func<bool> InitialDialogueFinished() => () => (initialDialogue.finished);
-        Func<bool> ToPhase1() => () => (dialogue.finished && (CalculateHealth() >= 0.8));
-        Func<bool> ToPhase2() => () => (dialogue.finished && (CalculateHealth() < 0.8) && (CalculateHealth() >= 0.5));
-        Func<bool> ToPhase3() => () => (dialogue.finished && (CalculateHealth() < 0.5) && (CalculateHealth() >= 0.2));
-        Func<bool> ToPhase4() => () => (dialogue.finished && (CalculateHealth() < 0.2));
-        Func<bool> InitialPhaseFinished() => () => (initialPhase.TimePassed > _attackPhaseDuration);
-        Func<bool> Phase1Finished() => () => (phase1.TimePassed > _attackPhaseDuration);
-        Func<bool> Phase2Finished() => () => (phase2.TimePassed > _attackPhaseDuration);
-        Func<bool> Phase3Finished() => () => (phase3.TimePassed > _attackPhaseDuration);
-        Func<bool> Phase4Finished() => () => (phase4.TimePassed > _attackPhaseDuration);
+
+        Func<bool> Dialogue1Finished() => () => (dialogue1.finished);
+        Func<bool> Dialogue2Finished() => () => (dialogue2.finished);
+        Func<bool> Dialogue3Finished() => () => (dialogue3.finished);
+        Func<bool> Dialogue4Finished() => () => (dialogue4.finished);
+
+        Func<bool> Attack1Finished() => () => (phase1.TimePassed > _attackPhaseDuration && CalculateHealth() >= 0.8);
+        Func<bool> Attack2Finished() => () => (phase2.TimePassed > _attackPhaseDuration && CalculateHealth() >= 0.5);
+        Func<bool> Attack3Finished() => () => (phase3.TimePassed > _attackPhaseDuration && CalculateHealth() >= 0.2);
+        Func<bool> Attack4Finished() => () => (phase4.TimePassed > _attackPhaseDuration);
+
+        Func<bool> Transition1() => () => (phase1.TimePassed > _attackPhaseDuration && CalculateHealth() < 0.8);
+        Func<bool> Transition2() => () => (phase1.TimePassed > _attackPhaseDuration && CalculateHealth() < 0.5);
+        Func<bool> Transition3() => () => (phase1.TimePassed > _attackPhaseDuration && CalculateHealth() < 0.2);
+
+        Func<bool> EndOfTransition1() => () => (transitionToPhase2.finished);
+        Func<bool> EndOfTransition2() => () => (transitionToPhase3.finished);
+        Func<bool> EndOfTransition3() => () => (transitionToPhase4.finished);
     }
 
     // Calls Tick() function from statemachine, sets health.
@@ -106,6 +137,7 @@ public class ArcherBoss : MonoBehaviour
     //                                                         Boss UI                                                         //
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    // Function to activate Boss canvas for dialogue and write text on it
     public void Dialogue(string text)
     {
         _dialogueHolder.gameObject.SetActive(true);
@@ -122,7 +154,7 @@ public class ArcherBoss : MonoBehaviour
     //                                                Boss Attack Phase Control                                                //
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    // Spawns attackable parts of the boss
+    // Spawns attackable parts of the boss on random places within given Bounds
     public GameObject SpawnBossPart(Bounds bounds, int n)
     {
         Vector2 pos = new Vector2(

@@ -123,6 +123,87 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &424183976
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4816465200439716615, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: attackCooldown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465200439716615, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: enemies.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465200439716665, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465200439716668, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465200439716668, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465200439716668, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465200439716668, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465200439716668, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465200439716668, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465200439716668, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465200439716668, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465200439716668, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465200439716668, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465200439716668, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465201217716750, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465201217716750, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465201435145642, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816465201435145642, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fb63f4c93a9528840af7a5ba3b41c642, type: 3}
 --- !u!1 &583619690
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,10 +445,6 @@ PrefabInstance:
     - target: {fileID: 7895356903724432451, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7914565069010459640, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}
-      propertyPath: textColor.a
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}

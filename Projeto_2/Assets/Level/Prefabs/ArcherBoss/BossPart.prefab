@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2ca50e042e77b4e87d618bc2d029f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 2
+  _maxHealth: 50
   _slider: {fileID: 8586460204049022848}
   _spawnInvincibilityTime: 0.2
   destroyedDialogue: Boss Part destroyed

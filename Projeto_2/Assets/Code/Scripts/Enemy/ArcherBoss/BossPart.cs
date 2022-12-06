@@ -24,7 +24,6 @@ public class BossPart : MonoBehaviour
     // Adjusts the health bar accordingly
     public void Update()
     {
-        _slider.value = CalculateHealth();
         spawnInvincibilityTime -= Time.deltaTime;
 
         if (currentHealth <= 0)
@@ -40,21 +39,27 @@ public class BossPart : MonoBehaviour
         {
             currentHealth = _maxHealth;
         }
+
+        _slider.value = CalculateHealth();
     }
 
     // Applies damage to the boss part game object and its parent (Archer boss) if exists
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        if (transform.parent != null)
+    }
+
+    public void OnDestroy()
+    {
+        if (transform.parent != null && currentHealth <= 0)
         {
-            this.GetComponentInParent<ArcherBoss>().currentHealth -= damage;
+            this.GetComponentInParent<ArcherBoss>().currentHealth -= _maxHealth;
         }
     }
 
     // Calculates health for slider.
     public float CalculateHealth()
     {
-        return currentHealth/_maxHealth;
+        return (float)currentHealth/(float)_maxHealth;
     }
 }

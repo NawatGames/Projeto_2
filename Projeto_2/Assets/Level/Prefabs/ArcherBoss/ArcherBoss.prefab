@@ -1322,9 +1322,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textColor: {r: 0, g: 0, b: 0, a: 1}
   textFont: {fileID: 12800000, guid: 6acbb7b3600a3104b8cc0138c993fb04, type: 3}
-  letterByLetterDelay: 0.02
+  letterByLetterDelay: 0.05
   canvasGroup: {fileID: 1379486066}
-  fadeDuration: 0.5
+  fadeDuration: 2
 --- !u!1 &6066792629514265721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,11 +1486,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3271b0528040feb4dbf04ab3149b2669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 500
+  _maxHealth: 1000
   _bossPart:
   - {fileID: 4236533205617950151, guid: bf18a00e538cade42b33ffe2965e31b7, type: 3}
   _slider: {fileID: 9173954550321894652}
-  _attackPhaseDuration: 10
+  _attackPhaseDuration: 20
   _dialogueHolder: {fileID: 6066792628700347150}
   _attackPattern:
   - {fileID: 3706939623327835108}
@@ -1511,7 +1511,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.3}
+  m_Offset: {x: 0, y: -1.6}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1522,7 +1522,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14, y: 5}
+  m_Size: {x: 14, y: 3.5}
   m_EdgeRadius: 0
 --- !u!1 &6078489012100558158
 GameObject:

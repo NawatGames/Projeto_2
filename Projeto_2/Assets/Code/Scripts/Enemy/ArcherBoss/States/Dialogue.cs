@@ -32,5 +32,8 @@ public class Dialogue : IState
     }
 
     // Clean up
-    public void OnExit() {}
+    public void OnExit()
+    {
+        finished = false;
+    }
 }

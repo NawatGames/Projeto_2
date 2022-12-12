@@ -8,7 +8,7 @@ public class Attack : MonoBehaviour
     private float attackTime;
     public float attackCooldown;
 
-    public Transform attackPosition;
+    public Vector3 attackOffset;
     public LayerMask enemies;
     public float attackRange;
     public int damage;
@@ -16,26 +16,40 @@ public class Attack : MonoBehaviour
 
     public HealthBar healthBar;
     public int healthPlayer = 15;
-    private int activeHealthPlayer;
+    private int _activeHealthPlayer;
 
     public Shield shield;
+    public PlayerMovement playerMovement;
+
+    private Vector3 attackPosition;
 
     void Start()
     {
-        activeHealthPlayer = healthPlayer;
+        _activeHealthPlayer = healthPlayer;
         healthBar.SetHealthPlayer(healthPlayer);
-        animator = GetComponent<Animator>();
+        playerMovement = GetComponent<PlayerMovement>();
+        // animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(attackTime <= 0)
+        if (playerMovement.facingRight)
         {
+            attackPosition = transform.position + attackOffset;
+        }
+        else
+        {
+            attackPosition = transform.position - attackOffset;
+        }
+        // attackPosition = transform.position + (attackOffset * playerMovement.moveInput.x);
+        
+        if(attackTime <= 0)
+        { 
             if(Input.GetKey(KeyCode.C))
             {
                 animator.SetBool("Attacking", true);
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, enemies);
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosition, attackRange, enemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<BossPart>().TakeDamage(damage);
@@ -55,10 +69,10 @@ public class Attack : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        activeHealthPlayer -= damage;
-        healthBar.SetHealth(activeHealthPlayer);
+        _activeHealthPlayer -= damage;
+        healthBar.SetHealth(_activeHealthPlayer);
 
-        if(activeHealthPlayer <= 0)
+        if(_activeHealthPlayer <= 0)
         {
             Destroy(gameObject);
         }
@@ -75,6 +89,6 @@ public class Attack : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPosition.position, attackRange);
+        Gizmos.DrawWireSphere(attackPosition, attackRange);
     }
 }

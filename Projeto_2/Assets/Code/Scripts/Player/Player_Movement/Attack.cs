@@ -30,26 +30,30 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(attackTime <= 0)
-        {
-            if(Input.GetKey(KeyCode.C))
-            {
-                animator.SetBool("Attacking", true);
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, enemies);
-                for (int i = 0; i < enemiesToDamage.Length; i++)
+
+        if(Input.GetKeyDown(KeyCode.C))
+            {         
+                if(attackTime <= 0)
                 {
-                    enemiesToDamage[i].GetComponent<BossPart>().TakeDamage(damage);
+                    BasicAttack();
+                    attackTime = attackCooldown;
                 }
+                
             }
-            else
-            {
-                animator.SetBool("Attacking", false);
-            }
-            attackTime = attackCooldown;
-        }
         else
         {
+            animator.SetBool("Attacking", false);
             attackTime -= Time.deltaTime;
+        }
+    }
+
+    public void BasicAttack()
+    {
+        animator.SetBool("Attacking", true);
+        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, enemies);
+        foreach(Collider2D enemy in enemiesToDamage)
+        {
+            enemy.GetComponent<BossPart>().TakeDamage(damage);
         }
     }
 
@@ -68,7 +72,7 @@ public class Attack : MonoBehaviour
     {
         if(((collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent)) && (shield.shieldPlayer == true)))
         {
-            enemyComponent.TakeDamage(3);
+            enemyComponent.TakeDamage(damage);
         }
     }
 

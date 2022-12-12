@@ -27,16 +27,40 @@ public class Shield : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.E))
         {
-            if(shieldCoolCounter <= 0 && shieldCounter <= 0)
-            {
-                shieldPlayer = true;
-                stamina.canvasStamina.SetActive(true);
-                movement.activeMoveSpeed = movement.moveSpeed / 4;
-                shieldCounter = shieldTime;
-                stamina.SetStaminaPlayer(shieldTime);
-                animator.SetBool("Shielding", true);
-            }
+            
+            shieldPlayer = true;
+            stamina.canvasStamina.SetActive(true);
+            movement.activeMoveSpeed = movement.moveSpeed / 4;
+            shieldCounter = shieldTime;
+            shieldCounter -= Time.deltaTime;
+            stamina.SetStaminaPlayer(shieldTime);
+            animator.SetBool("Shielding", true);
+            
         }
+        else
+        {
+            shieldCounter -= Time.deltaTime;
+            stamina.SetStamina(shieldCounter);
+            shieldPlayer = false;
+            animator.SetBool("Shielding", false);
+        }
+
+
+
+
+
+        // if(Input.GetKey(KeyCode.E))
+        // {
+        //     if(shieldCoolCounter <= 0 && shieldCounter <= 0)
+        //     {
+        //         shieldPlayer = true;
+        //         stamina.canvasStamina.SetActive(true);
+        //         movement.activeMoveSpeed = movement.moveSpeed / 4;
+        //         shieldCounter = shieldTime;
+        //         stamina.SetStaminaPlayer(shieldTime);
+        //         animator.SetBool("Shielding", true);
+        //     }
+        // }
 
         if(shieldCounter > 0)
         {

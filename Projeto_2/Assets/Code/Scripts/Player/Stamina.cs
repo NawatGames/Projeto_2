@@ -10,6 +10,8 @@ public class Stamina : MonoBehaviour
     public Shield shield;
     public GameObject canvasStamina; // Assign in inspector
 
+    public PlayerMovement movement;
+
     public void SetStaminaPlayer(float stamina)
     {
         slider.maxValue = stamina;

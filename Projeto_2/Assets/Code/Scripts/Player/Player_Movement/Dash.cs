@@ -22,7 +22,7 @@ public class Dash : MonoBehaviour
     {
         dashShieldPlayer = false;
         tr.emitting = false;
-        animator = GetComponent<Animator>();
+        // animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame

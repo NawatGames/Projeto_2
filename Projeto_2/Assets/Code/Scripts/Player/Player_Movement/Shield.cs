@@ -19,7 +19,7 @@ public class Shield : MonoBehaviour
     {
         shieldPlayer = false;
         stamina.canvasStamina.SetActive(false);
-        animator = GetComponent<Animator>();
+        // animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame

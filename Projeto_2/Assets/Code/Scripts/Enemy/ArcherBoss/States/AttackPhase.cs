@@ -23,7 +23,7 @@ public class AttackPhase : IState
         {
             bossPart = _archerBoss.SpawnBossPart(_archerBoss.GetComponent<BoxCollider2D>().bounds, 0);
             bossPart.transform.SetParent(_archerBoss.transform);
-            TimePassed -= 5f;
+            TimePassed -= 2f;
         }
     }
 
@@ -45,4 +45,3 @@ public class AttackPhase : IState
         _attackPattern.SetActive(false);
     }
 }
-

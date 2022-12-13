@@ -9,30 +9,58 @@ public class Shield : MonoBehaviour
     public float shieldCooldown = 2.5f;
     private float shieldCounter;
     private float shieldCoolCounter;
-    [SerializeField] private GameObject shieldImage;
+
     public Stamina stamina;
     public PlayerMovement movement;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         shieldPlayer = false;
+        stamina.canvasStamina.SetActive(false);
+        // animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKey(KeyCode.E))
         {
-            if(shieldCoolCounter <= 0 && shieldCounter <= 0)
-            {
-                shieldPlayer = true;
-                movement.activeMoveSpeed = movement.moveSpeed / 4;
-                shieldImage.SetActive(true);
-                shieldCounter = shieldTime;
-                stamina.SetStaminaPlayer(shieldTime);
-            }
+            
+            shieldPlayer = true;
+            stamina.canvasStamina.SetActive(true);
+            movement.activeMoveSpeed = movement.moveSpeed / 4;
+            shieldCounter = shieldTime;
+            shieldCounter -= Time.deltaTime;
+            stamina.SetStaminaPlayer(shieldTime);
+            animator.SetBool("Shielding", true);
+            
         }
+        else
+        {
+            shieldCounter -= Time.deltaTime;
+            stamina.SetStamina(shieldCounter);
+            shieldPlayer = false;
+            animator.SetBool("Shielding", false);
+        }
+
+
+
+
+
+        // if(Input.GetKey(KeyCode.E))
+        // {
+        //     if(shieldCoolCounter <= 0 && shieldCounter <= 0)
+        //     {
+        //         shieldPlayer = true;
+        //         stamina.canvasStamina.SetActive(true);
+        //         movement.activeMoveSpeed = movement.moveSpeed / 4;
+        //         shieldCounter = shieldTime;
+        //         stamina.SetStaminaPlayer(shieldTime);
+        //         animator.SetBool("Shielding", true);
+        //     }
+        // }
 
         if(shieldCounter > 0)
         {
@@ -42,10 +70,10 @@ public class Shield : MonoBehaviour
             if(shieldCounter <= 0)
             {
                 shieldPlayer = false;
-                shieldImage.SetActive(false);
                 movement.activeMoveSpeed = movement.moveSpeed;
                 shieldCoolCounter = shieldCooldown;
                 stamina.SetStaminaPlayer(shieldCooldown);
+                animator.SetBool("Shielding", false);
             }
         }
 

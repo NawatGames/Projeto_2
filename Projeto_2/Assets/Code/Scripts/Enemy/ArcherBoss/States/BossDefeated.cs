@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossDefeated : IState
@@ -18,8 +16,13 @@ public class BossDefeated : IState
     public void OnEnter()
     {
         Debug.Log("Game Cleared!!");
+        _archerBoss.DespawnBossAttack();
+        _archerBoss.DespawnBossParts();
+        _archerBoss.transform.Find("AttackPatternHolder").gameObject.SetActive(false);
     }
 
     // Clean up
-    public void OnExit() { }
+    public void OnExit()
+    {
+    }
 }

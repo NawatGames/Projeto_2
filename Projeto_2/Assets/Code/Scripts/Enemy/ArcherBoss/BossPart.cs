@@ -1,20 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 // Class to handle the parts of boss that appear for the player to attack
 public class BossPart : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth = 20f;
-    //[SerializeField] private string _attackTag = "PlayerWeapon";
+    [SerializeField] private int _maxHealth = 20;
     [SerializeField] private Slider _slider;
     [SerializeField] private float _spawnInvincibilityTime = 0.2f;
+    [SerializeField] private string destroyedDialogue;
 
-    private float currentHealth;
-    private float spawnInvincibilityTime;
-
-    // Calculates damage when attacked
+    [HideInInspector] public int currentHealth;
+    [HideInInspector] private float spawnInvincibilityTime;
 
     // Sets health to maxhealth and adjusts the healthbar slider
     public void Awake()
@@ -28,11 +24,14 @@ public class BossPart : MonoBehaviour
     // Adjusts the health bar accordingly
     public void Update()
     {
-        _slider.value = CalculateHealth();
         spawnInvincibilityTime -= Time.deltaTime;
 
         if (currentHealth <= 0)
         {
+            if (transform.parent != null)
+            {
+                this.GetComponentInParent<ArcherBoss>().Dialogue(destroyedDialogue);
+            }
             Destroy(this.gameObject);
         }
 
@@ -40,10 +39,27 @@ public class BossPart : MonoBehaviour
         {
             currentHealth = _maxHealth;
         }
+
+        _slider.value = CalculateHealth();
     }
 
+    // Applies damage to the boss part game object and its parent (Archer boss) if exists
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+    }
+
+    public void OnDestroy()
+    {
+        if (transform.parent != null && currentHealth <= 0)
+        {
+            this.GetComponentInParent<ArcherBoss>().currentHealth -= _maxHealth;
+        }
+    }
+
+    // Calculates health for slider.
     public float CalculateHealth()
     {
-        return currentHealth/_maxHealth;
+        return (float)currentHealth/(float)_maxHealth;
     }
 }

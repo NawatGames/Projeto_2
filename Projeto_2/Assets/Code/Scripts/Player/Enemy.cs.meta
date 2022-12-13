@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Projeto_2/Assets/Code/Scripts/Player/Enemy.cs.meta
 guid: f40b8f017bf5a1f47b90f811a5ce6db5
+========
+guid: a182a4106b01dea408cf25bf075faa19
+>>>>>>>> Player-attack:Projeto_2/Assets/Code/Scripts/Player/PlayerAttack.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

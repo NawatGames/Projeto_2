@@ -645,10 +645,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 0.5
-  attackOffset: {x: 0, y: 0, z: 0}
+  attackOffset: {x: 1.5, y: 0, z: 0}
   enemies:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 64
   attackRange: 0.75
   damage: 5
   animator: {fileID: 5400832063040386953}

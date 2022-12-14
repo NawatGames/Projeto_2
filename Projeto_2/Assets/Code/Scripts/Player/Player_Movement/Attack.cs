@@ -1,71 +1,68 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Attack : MonoBehaviour
 {
-    private float attackTime;
-    public float attackCooldown;
-
+    private float _attackTime;
     public Vector3 attackOffset;
-    public LayerMask enemies;
     public float attackRange;
+    public float attackCooldown;
     public int damage;
+    public LayerMask enemies;
     public Animator animator;
+    
+    private Health _health;
+    private Shield _shield;
+    private PlayerMovement _playerMovement;
+    private Vector3 _attackPosition;
 
-    public Health health;
-    public int healthPlayer = 15;
-    private int _activeHealthPlayer;
-
-    public Shield shield;
-    public PlayerMovement playerMovement;
-
-    private Vector3 attackPosition;
-
-    void Start()
+    private void OnEnable()
     {
-        _activeHealthPlayer = healthPlayer;
-        playerMovement = GetComponent<PlayerMovement>();
-        // animator = GetComponent<Animator>();
+        _health = GetComponent<Health>();
+        _shield = GetComponent<Shield>();
+        _playerMovement = GetComponent<PlayerMovement>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if (_playerMovement.facingRight)
+        {
+            _attackPosition = transform.position + attackOffset;
+        }
+        else
+        {
+            _attackPosition = transform.position - attackOffset;
+        }
 
         if(Input.GetKeyDown(KeyCode.C))
         {         
-            if(attackTime <= 0)
+            if (_attackTime <= 0)
             {
                     BasicAttack(); 
-                    attackTime = attackCooldown;
+                    _attackTime = attackCooldown;
             }
-                
         }
         else
         {
             animator.SetBool("Attacking", false);
-            attackTime -= Time.deltaTime;
+            _attackTime -= Time.deltaTime;
         }
     }
 
-    public void BasicAttack()
+    private void BasicAttack()
     {
         animator.SetBool("Attacking", true);
-        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosition, attackRange, enemies);
+        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(_attackPosition, attackRange, enemies);
         foreach(Collider2D enemy in enemiesToDamage)
         {
             enemy.GetComponent<BossPart>().TakeDamage(damage);
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int value)
     {
-        _activeHealthPlayer -= damage;
-        health.RemoveHealth(damage);
+        _health.RemoveHealth(value);
 
-        if(_activeHealthPlayer <= 0)
+        if(_health.GetHealth() <= 0)
         {
             Destroy(gameObject);
         }
@@ -73,7 +70,7 @@ public class Attack : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(((collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent)) && shield.isShielding))
+        if(((collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent)) && _shield.isShielding))
         {
             enemyComponent.TakeDamage(damage);
         }
@@ -82,6 +79,6 @@ public class Attack : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPosition, attackRange);
+        Gizmos.DrawWireSphere(_attackPosition, attackRange);
     }
 }

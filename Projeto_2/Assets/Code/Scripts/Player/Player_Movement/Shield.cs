@@ -1,86 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-    public bool shieldPlayer;
-    public float shieldTime = 5f;
-    public float shieldCooldown = 2.5f;
-    private float shieldCounter;
-    private float shieldCoolCounter;
+    public bool isShielding;
+    public bool canShield = true;
+    public float shieldConsumeRatio = 2.5f;
+    public float penaltyRatio = 4;
 
-    public Stamina stamina;
-    public PlayerMovement movement;
+    private Stamina _stamina;
+    private PlayerMovement _playerMovement;
     public Animator animator;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnEnable()
     {
-        shieldPlayer = false;
-        stamina.canvasStamina.SetActive(false);
-        // animator = GetComponent<Animator>();
+        isShielding = false;
+        _stamina = GetComponent<Stamina>();
+        _playerMovement = GetComponent<PlayerMovement>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if(Input.GetKey(KeyCode.E))
+        if(Input.GetKey(KeyCode.E) && _stamina.GetStamina() > 0 && canShield)
         {
-            
-            shieldPlayer = true;
-            stamina.canvasStamina.SetActive(true);
-            movement.activeMoveSpeed = movement.moveSpeed / 4;
-            shieldCounter = shieldTime;
-            shieldCounter -= Time.deltaTime;
-            stamina.SetStaminaPlayer(shieldTime);
+            isShielding = true;
+            _playerMovement.activeMoveSpeed = _playerMovement.moveSpeed / penaltyRatio;
             animator.SetBool("Shielding", true);
-            
+            _stamina.RemoveStamina(Time.deltaTime * shieldConsumeRatio);
+        }
+        else if (Input.GetKeyUp(KeyCode.E) && canShield)
+        {
+            isShielding = false;
+            _playerMovement.activeMoveSpeed = _playerMovement.moveSpeed;
+            animator.SetBool("Shielding", false);
         }
         else
         {
-            shieldCounter -= Time.deltaTime;
-            stamina.SetStamina(shieldCounter);
-            shieldPlayer = false;
+            _stamina.AddStamina(Time.deltaTime);
+        }
+
+        if (_stamina.GetStamina() == 0)
+        {
+            canShield = false;
+            isShielding = false;
             animator.SetBool("Shielding", false);
+            _playerMovement.activeMoveSpeed = _playerMovement.moveSpeed / penaltyRatio;
         }
 
-
-
-
-
-        // if(Input.GetKey(KeyCode.E))
-        // {
-        //     if(shieldCoolCounter <= 0 && shieldCounter <= 0)
-        //     {
-        //         shieldPlayer = true;
-        //         stamina.canvasStamina.SetActive(true);
-        //         movement.activeMoveSpeed = movement.moveSpeed / 4;
-        //         shieldCounter = shieldTime;
-        //         stamina.SetStaminaPlayer(shieldTime);
-        //         animator.SetBool("Shielding", true);
-        //     }
-        // }
-
-        if(shieldCounter > 0)
+        if (canShield == false && Math.Abs(_stamina.GetStamina() - _stamina.maxStamina) <= 0)
         {
-            shieldCounter -= Time.deltaTime;
-            stamina.SetStamina(shieldCounter);
-
-            if(shieldCounter <= 0)
-            {
-                shieldPlayer = false;
-                movement.activeMoveSpeed = movement.moveSpeed;
-                shieldCoolCounter = shieldCooldown;
-                stamina.SetStaminaPlayer(shieldCooldown);
-                animator.SetBool("Shielding", false);
-            }
-        }
-
-        if(shieldCoolCounter > 0)
-        {
-            shieldCoolCounter -= Time.deltaTime;
-            stamina.SetStamina(shieldCoolCounter);
+            canShield = true;
+            _playerMovement.activeMoveSpeed = _playerMovement.moveSpeed;
         }
     }
 }

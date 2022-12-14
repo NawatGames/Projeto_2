@@ -14,7 +14,7 @@ public class Attack : MonoBehaviour
     public int damage;
     public Animator animator;
 
-    public HealthBar healthBar;
+    public Health health;
     public int healthPlayer = 15;
     private int _activeHealthPlayer;
 
@@ -26,7 +26,6 @@ public class Attack : MonoBehaviour
     void Start()
     {
         _activeHealthPlayer = healthPlayer;
-        healthBar.SetHealthPlayer(healthPlayer);
         playerMovement = GetComponent<PlayerMovement>();
         // animator = GetComponent<Animator>();
     }
@@ -36,14 +35,14 @@ public class Attack : MonoBehaviour
     {
 
         if(Input.GetKeyDown(KeyCode.C))
-            {         
-                if(attackTime <= 0)
-                {
-                    BasicAttack();
+        {         
+            if(attackTime <= 0)
+            {
+                    BasicAttack(); 
                     attackTime = attackCooldown;
-                }
-                
             }
+                
+        }
         else
         {
             animator.SetBool("Attacking", false);
@@ -54,7 +53,7 @@ public class Attack : MonoBehaviour
     public void BasicAttack()
     {
         animator.SetBool("Attacking", true);
-        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, enemies);
+        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosition, attackRange, enemies);
         foreach(Collider2D enemy in enemiesToDamage)
         {
             enemy.GetComponent<BossPart>().TakeDamage(damage);
@@ -64,7 +63,7 @@ public class Attack : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _activeHealthPlayer -= damage;
-        healthBar.SetHealth(_activeHealthPlayer);
+        health.RemoveHealth(damage);
 
         if(_activeHealthPlayer <= 0)
         {
@@ -74,7 +73,7 @@ public class Attack : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(((collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent)) && (shield.shieldPlayer == true)))
+        if(((collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent)) && shield.isShielding))
         {
             enemyComponent.TakeDamage(damage);
         }

@@ -9,21 +9,20 @@ public class Enemy : MonoBehaviour
     public Dash dash;
     public int healthEnemy = 15;
     private int activeHealthEnemy;
-    public HealthBar healthBar;
+    public Health health;
     public Attack attack;
 
 
     void Start()
     {
         activeHealthEnemy = healthEnemy;
-        healthBar.SetHealthPlayer(healthEnemy);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.TryGetComponent<Attack>(out Attack enemyComponent))
         {
-            if(!shield.shieldPlayer && !dash.dashShieldPlayer)
+            if(!shield.isShielding && !dash.dashShieldPlayer)
             {
                 enemyComponent.TakeDamage(3);
             }
@@ -32,8 +31,7 @@ public class Enemy : MonoBehaviour
 
         public void TakeDamage(int damage)
     {
-        activeHealthEnemy -= damage;
-        healthBar.SetHealth(activeHealthEnemy);
+        health.RemoveHealth(damage);
 
         if(activeHealthEnemy <= 0)
         {

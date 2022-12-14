@@ -336,9 +336,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 15
-  m_WholeNumbers: 1
-  m_Value: 15
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -354,7 +354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62098c8ae60e3044fab350678d1f87c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 4816465199951644759}
   gradient:
     serializedVersion: 2
     key0: {r: 1, g: 0, b: 0, a: 1}
@@ -384,7 +383,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  fill: {fileID: 4816465201217716749}
+  health: {fileID: 2433369487800897864}
 --- !u!1 &4816465200110834967
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +496,8 @@ GameObject:
   - component: {fileID: 4816465200439716668}
   - component: {fileID: 4816465200439716670}
   - component: {fileID: 4816465200439716611}
+  - component: {fileID: 2433369487800897864}
+  - component: {fileID: 2033955619476090895}
   - component: {fileID: 4816465200439716610}
   - component: {fileID: 4816465200439716609}
   - component: {fileID: 4816465200439716615}
@@ -543,7 +544,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &4816465200439716611
@@ -565,6 +566,34 @@ MonoBehaviour:
   facingRight: 1
   animator: {fileID: 5400832063040386953}
   sprite: {fileID: 3582588502620725098}
+--- !u!114 &2433369487800897864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816465200439716665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75325802a849a374486e8a2e15c2ec4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 20
+--- !u!114 &2033955619476090895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816465200439716665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5bea8bce0878f49a513e33fbbdfe2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStamina: 0
+  maxStamina: 5
 --- !u!114 &4816465200439716610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,11 +606,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20104b2416bcaa34196a58d216400d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldPlayer: 0
-  shieldTime: 5
-  shieldCooldown: 3.5
-  stamina: {fileID: 4816465201171250071}
-  movement: {fileID: 4816465200439716611}
+  isShielding: 0
+  canShield: 1
+  shieldCooldownRatio: 2.5
   animator: {fileID: 5400832063040386953}
 --- !u!114 &4816465200439716609
 MonoBehaviour:
@@ -623,7 +650,7 @@ MonoBehaviour:
   attackRange: 0.75
   damage: 5
   animator: {fileID: 5400832063040386953}
-  healthBar: {fileID: 4816465199951644758}
+  health: {fileID: 0}
   healthPlayer: 15
   shield: {fileID: 4816465200439716610}
   playerMovement: {fileID: 0}
@@ -842,7 +869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4816465201171250064}
   - component: {fileID: 4816465201171250070}
-  - component: {fileID: 4816465201171250071}
+  - component: {fileID: 4002883750397918393}
   m_Layer: 5
   m_Name: Stamina
   m_TagString: Untagged
@@ -916,13 +943,13 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 5
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 5
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4816465201171250071
+--- !u!114 &4002883750397918393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -931,13 +958,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4816465201171250065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b5bea8bce0878f49a513e33fbbdfe2f, type: 3}
+  m_Script: {fileID: 11500000, guid: e370b8f97fbee174f91b312539b92f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 4816465201171250070}
-  fill: {fileID: 4816465201435145641}
-  shield: {fileID: 4816465200439716610}
-  canvasStamina: {fileID: 4816465201171250065}
+  stamina: {fileID: 2033955619476090895}
 --- !u!1 &4816465201217716751
 GameObject:
   m_ObjectHideFlags: 0

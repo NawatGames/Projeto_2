@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class CollisionDetection : MonoBehaviour
@@ -8,11 +7,13 @@ public class CollisionDetection : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         var player = col.gameObject;
-        
-        if  (player.CompareTag("Player"))
-        { 
-            Debug.Log(damage+" damage!");
-            Destroy(gameObject);
+
+        if (!player.CompareTag("Player")) return;
+        if (!player.GetComponent<Shield>().isShielding)
+        {
+            player.GetComponent<Health>().RemoveHealth(damage);
+            Debug.Log(damage+" DAMAGE!");
         }
+        Destroy(gameObject);
     }
 }

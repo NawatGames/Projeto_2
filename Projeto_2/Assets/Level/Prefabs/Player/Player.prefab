@@ -383,6 +383,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
+  img: {fileID: 4816465201217716749}
   health: {fileID: 2433369487800897864}
 --- !u!1 &4816465200110834967
 GameObject:
@@ -608,7 +609,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isShielding: 0
   canShield: 1
-  shieldCooldownRatio: 2.5
+  shieldConsumeRatio: 2.5
+  penaltyRatio: 4
   animator: {fileID: 5400832063040386953}
 --- !u!114 &4816465200439716609
 MonoBehaviour:

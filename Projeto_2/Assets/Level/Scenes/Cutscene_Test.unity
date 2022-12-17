@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b849fb669cc0f47baf7685ae401158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: Cena 2
+  input: Last Dialogue
   textColor: {r: 0, g: 0, b: 0, a: 1}
   textFont: {fileID: 12800000, guid: 6acbb7b3600a3104b8cc0138c993fb04, type: 3}
   letterByLetterDelay: 0.1
@@ -777,14 +777,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b849fb669cc0f47baf7685ae401158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: awefaw waoeifh oijoij oinkoronesgnkeorjg orkwnfowekfnw
+  input: Dialogue 1
   textColor: {r: 0, g: 0, b: 0, a: 1}
   textFont: {fileID: 12800000, guid: 6acbb7b3600a3104b8cc0138c993fb04, type: 3}
-  letterByLetterDelay: 0.5
+  letterByLetterDelay: 0.2
   cutsceneSprite: {fileID: 21300000, guid: 2cc79cf7ee3f7684d887ea05f3c36a18, type: 3}
   imageHolder: {fileID: 127104826}
   canvasGroup: {fileID: 1334516936}
-  fadeDuration: 1
+  fadeDuration: 0.5
 --- !u!114 &2114222666
 MonoBehaviour:
   m_ObjectHideFlags: 0

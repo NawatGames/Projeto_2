@@ -54,7 +54,7 @@ public class Attack : MonoBehaviour
     public void BasicAttack()
     {
         animator.SetBool("Attacking", true);
-        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, enemies);
+        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosition, attackRange, enemies);
         foreach(Collider2D enemy in enemiesToDamage)
         {
             enemy.GetComponent<BossPart>().TakeDamage(damage);

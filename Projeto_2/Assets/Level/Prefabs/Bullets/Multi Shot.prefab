@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3072463a99dcf549817ea6c9bd7a5db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 4924276723450349073, guid: 2d64d6737a7a74441b3e1cb8a119343d, type: 3}
+  objectToSpawn: {fileID: 4924276723450349073, guid: 78da5336c66125344874ff9b0d2b7843, type: 3}
   delay: 0.2
   amountOfBullets: 3

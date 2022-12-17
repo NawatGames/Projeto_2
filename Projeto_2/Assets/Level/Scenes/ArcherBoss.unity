@@ -2576,34 +2576,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6066792628252476760, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6066792628252476760, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6066792628252476767, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -4734126442919420722, guid: 8bc177eba209d014db7c0ec15d6c1b68, type: 3}
-    - target: {fileID: 6066792629547411757, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}
-      propertyPath: _bossPart.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6066792629547411757, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}
-      propertyPath: _bossPart.Array.data[1]
-      value: 
-      objectReference: {fileID: 667259395985837757, guid: e26043d9709fe1e41a82897d0d8bf6a1, type: 3}
-    - target: {fileID: 6066792629547411757, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}
-      propertyPath: _bossPart.Array.data[2]
-      value: 
-      objectReference: {fileID: 1592046511966832975, guid: 3591e36e6ea45f14689f9ca9f700ac89, type: 3}
-    - target: {fileID: 6066792629547411757, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}
-      propertyPath: _bossPart.Array.data[3]
-      value: 
-      objectReference: {fileID: 32948056340991425, guid: 2e06b28ab4d49404d80feea6522716eb, type: 3}
     - target: {fileID: 6066792629547411758, guid: 2cf883528047de74193a69a5c10bbb07, type: 3}
       propertyPath: m_RootOrder
       value: 3

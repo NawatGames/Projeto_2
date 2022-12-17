@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Level/Scenes/MainMenu.unity
+    guid: 9b396d5c5d18fa54db8dfe1f16cbb01e
+  - enabled: 1
+    path: Assets/Level/Scenes/Cutscene_Test.unity
+    guid: 92f161eed2b9e2143bf16695bd42d22b
+  - enabled: 1
+    path: Assets/Level/Scenes/ArcherBoss.unity
+    guid: 944db9d1d62d39247ae94353231806a4
   m_configObjects: {}

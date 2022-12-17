@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSpawn:
-  - {fileID: 4924276723450349073, guid: 78da5336c66125344874ff9b0d2b7843, type: 3}
+  - {fileID: 4924276723450349073, guid: 2d64d6737a7a74441b3e1cb8a119343d, type: 3}
   fireRate: 0.8
 --- !u!1 &1628841183924529898
 GameObject:
@@ -769,7 +769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSpawn:
-  - {fileID: 4924276723450349073, guid: 78da5336c66125344874ff9b0d2b7843, type: 3}
+  - {fileID: 4924276723450349073, guid: 2d64d6737a7a74441b3e1cb8a119343d, type: 3}
   fireRate: 0.8
 --- !u!1 &3462774507139407971
 GameObject:
@@ -1489,6 +1489,9 @@ MonoBehaviour:
   _maxHealth: 1000
   _bossPart:
   - {fileID: 4236533205617950151, guid: bf18a00e538cade42b33ffe2965e31b7, type: 3}
+  - {fileID: 667259395985837757, guid: e26043d9709fe1e41a82897d0d8bf6a1, type: 3}
+  - {fileID: 1592046511966832975, guid: 3591e36e6ea45f14689f9ca9f700ac89, type: 3}
+  - {fileID: 32948056340991425, guid: 2e06b28ab4d49404d80feea6522716eb, type: 3}
   _slider: {fileID: 9173954550321894652}
   _attackPhaseDuration: 20
   _dialogueHolder: {fileID: 6066792628700347150}
@@ -1622,7 +1625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSpawn:
-  - {fileID: 4924276723450349073, guid: 78da5336c66125344874ff9b0d2b7843, type: 3}
+  - {fileID: 4924276723450349073, guid: 2d64d6737a7a74441b3e1cb8a119343d, type: 3}
   - {fileID: 4924276723450349073, guid: 2d64d6737a7a74441b3e1cb8a119343d, type: 3}
   - {fileID: 4924276723450349073, guid: 78da5336c66125344874ff9b0d2b7843, type: 3}
   - {fileID: 4924276723450349073, guid: 2d64d6737a7a74441b3e1cb8a119343d, type: 3}

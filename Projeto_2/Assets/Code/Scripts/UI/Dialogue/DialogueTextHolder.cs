@@ -8,7 +8,7 @@ namespace DialogueSystem
     public class DialogueTextHolder : MonoBehaviour
     {
         // Starts to present all TextLines present as child of this gameObject.
-        private void Awake()
+        private void OnEnable()
         {
             StartCoroutine(textSequence());
         }

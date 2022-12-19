@@ -39,21 +39,21 @@ public class ArcherBoss : MonoBehaviour
         // phase -> Represents the moment when the boss starts attacking the player
         // transition -> State to change to next phase
 
-        var initialDialogue = new Dialogue(this, _dialogueHolder, "Game starting...");
+        var initialDialogue = new Dialogue(this, _dialogueHolder, "O que uma criatura asquerosa como você acha que pode fazer contra mim?");
 
         var dialogue1 = new Dialogue(this, _dialogueHolder, "Phase 1!");
-        var dialogue2 = new Dialogue(this, _dialogueHolder, "Phase 2!");
+        var dialogue2 = new Dialogue(this, _dialogueHolder, "Que insistência...");
         var dialogue3 = new Dialogue(this, _dialogueHolder, "Phase 3!");
-        var dialogue4 = new Dialogue(this, _dialogueHolder, "Phase 4!");
+        var dialogue4 = new Dialogue(this, _dialogueHolder, "MORRA, MORRA, MORRA!!");
 
-        var phase1 = new AttackPhase(this, _attackPattern[0]);
-        var phase2 = new AttackPhase(this, _attackPattern[1]);
-        var phase3 = new AttackPhase(this, _attackPattern[2]);
-        var phase4 = new AttackPhase(this, _attackPattern[3]);
+        var phase1 = new AttackPhase(this, _attackPattern[0], 0);
+        var phase2 = new AttackPhase(this, _attackPattern[1], 1);
+        var phase3 = new AttackPhase(this, _attackPattern[2], 2);
+        var phase4 = new AttackPhase(this, _attackPattern[3], 3);
 
-        var transitionToPhase2 = new Dialogue(this, _dialogueHolder, "To Phase 2!");
+        var transitionToPhase2 = new Dialogue(this, _dialogueHolder, "Ei, no rosto não! Acabei de sair do salão!");
         var transitionToPhase3 = new Dialogue(this, _dialogueHolder, "To Phase 3!");
-        var transitionToPhase4 = new Dialogue(this, _dialogueHolder, "To Phase 4!");
+        var transitionToPhase4 = new Dialogue(this, _dialogueHolder, "Você vai pagar por isso!");
 
         var bossDefeated = new BossDefeated(this);
 

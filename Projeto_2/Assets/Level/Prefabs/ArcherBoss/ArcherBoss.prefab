@@ -1489,9 +1489,9 @@ MonoBehaviour:
   _maxHealth: 1000
   _bossPart:
   - {fileID: 4236533205617950151, guid: bf18a00e538cade42b33ffe2965e31b7, type: 3}
-  - {fileID: 667259395985837757, guid: e26043d9709fe1e41a82897d0d8bf6a1, type: 3}
   - {fileID: 1592046511966832975, guid: 3591e36e6ea45f14689f9ca9f700ac89, type: 3}
   - {fileID: 32948056340991425, guid: 2e06b28ab4d49404d80feea6522716eb, type: 3}
+  - {fileID: 667259395985837757, guid: e26043d9709fe1e41a82897d0d8bf6a1, type: 3}
   _slider: {fileID: 9173954550321894652}
   _attackPhaseDuration: 20
   _dialogueHolder: {fileID: 6066792628700347150}

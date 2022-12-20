@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7438f8300c4b75540ab840bc7a407d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  damage: 3
   delay: 0.5
 --- !u!1 &5255379591633462239
 GameObject:
@@ -171,9 +171,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserWarning: {fileID: 7405109611645437197}
   laserFire: {fileID: 3082433910823527564}
-  laserLenght: 30
+  laserLenght: 50
   warningDuration: 1
-  laserLifetime: 2
+  laserLifetime: 1.5
 --- !u!1 &7405109611645437197
 GameObject:
   m_ObjectHideFlags: 0

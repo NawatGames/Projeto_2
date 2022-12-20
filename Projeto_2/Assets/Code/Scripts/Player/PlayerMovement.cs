@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -42,18 +40,13 @@ public class PlayerMovement : MonoBehaviour
 
         // Controls the sprite to always face the direction the player is moving
         Flip(sprite);
-        
     }
 
     // Flips entire gameobject on X axis
-    public void Flip(GameObject obj)
+    private void Flip(GameObject obj)
     {
         if ((!(moveInput.x < 0) || !facingRight) && (!(moveInput.x > 0) || facingRight)) return;
         facingRight = !facingRight;
         obj.transform.Rotate(new Vector3(0,180,0));
     }
-
-
-
-
 }

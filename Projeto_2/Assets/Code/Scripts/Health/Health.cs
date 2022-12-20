@@ -7,10 +7,19 @@ public class Health : MonoBehaviour
     public float maxHealth;
 
     public event Action<float> OnHealthChange;
+    public event Action OnDeath;
 
     private void OnEnable()
     {
         currentHealth = maxHealth;
+    }
+
+    private void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            OnDeath?.Invoke();
+        }
     }
 
     public void AddHealth(float value)

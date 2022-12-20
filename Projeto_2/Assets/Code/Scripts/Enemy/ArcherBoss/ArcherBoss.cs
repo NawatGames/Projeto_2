@@ -1,16 +1,13 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Random=UnityEngine.Random;
 
 public class ArcherBoss : MonoBehaviour
 {
     // Controls the boss stats and options
     [Header ("Boss stats and options")]
-    [SerializeField] private float _maxHealth = 500f;
     [SerializeField] private List<GameObject> _bossPart = new List<GameObject>();
-    [SerializeField] private Slider _slider;
 
     // Duration of attack phase
     [Header ("State options")]
@@ -22,13 +19,13 @@ public class ArcherBoss : MonoBehaviour
     [SerializeField] private List<GameObject> _attackPattern;
 
     private StateMachine _stateMachine;
-    public float currentHealth;
-    
+    private Health _health;
+
     // Setting state machine
     public void Awake()
     {
-        currentHealth = _maxHealth;
-        _slider.value = CalculateHealth();
+        _health = GetComponent<Health>();
+        
         _stateMachine = new StateMachine(); // Instantiates the state machine
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -83,7 +80,7 @@ public class ArcherBoss : MonoBehaviour
         Path(dialogue4, phase4, Dialogue4Finished());
 
         // Unnamed paths transitions
-        _stateMachine.AddAnyTransition(bossDefeated, () => (currentHealth <= 0));
+        _stateMachine.AddAnyTransition(bossDefeated, () => (_health.GetHealth() <= 0));
 
         // Sets initial state
         _stateMachine.SetState(initialDialogue);
@@ -101,14 +98,14 @@ public class ArcherBoss : MonoBehaviour
         Func<bool> Dialogue3Finished() => () => (dialogue3.finished);
         Func<bool> Dialogue4Finished() => () => (dialogue4.finished);
 
-        Func<bool> Attack1Finished() => () => (phase1.TimePassed > _attackPhaseDuration && CalculateHealth() >= 0.8);
-        Func<bool> Attack2Finished() => () => (phase2.TimePassed > _attackPhaseDuration && CalculateHealth() >= 0.5);
-        Func<bool> Attack3Finished() => () => (phase3.TimePassed > _attackPhaseDuration && CalculateHealth() >= 0.2);
+        Func<bool> Attack1Finished() => () => (phase1.TimePassed > _attackPhaseDuration && _health.GetPercentage() >= 0.8);
+        Func<bool> Attack2Finished() => () => (phase2.TimePassed > _attackPhaseDuration && _health.GetPercentage() >= 0.5);
+        Func<bool> Attack3Finished() => () => (phase3.TimePassed > _attackPhaseDuration && _health.GetPercentage() >= 0.2);
         Func<bool> Attack4Finished() => () => (phase4.TimePassed > _attackPhaseDuration);
 
-        Func<bool> Transition1() => () => (phase1.TimePassed > _attackPhaseDuration && CalculateHealth() < 0.8);
-        Func<bool> Transition2() => () => (phase1.TimePassed > _attackPhaseDuration && CalculateHealth() < 0.5);
-        Func<bool> Transition3() => () => (phase1.TimePassed > _attackPhaseDuration && CalculateHealth() < 0.2);
+        Func<bool> Transition1() => () => (phase1.TimePassed > _attackPhaseDuration && _health.GetPercentage() < 0.8);
+        Func<bool> Transition2() => () => (phase1.TimePassed > _attackPhaseDuration && _health.GetPercentage() < 0.5);
+        Func<bool> Transition3() => () => (phase1.TimePassed > _attackPhaseDuration && _health.GetPercentage() < 0.2);
 
         Func<bool> EndOfTransition1() => () => (transitionToPhase2.finished);
         Func<bool> EndOfTransition2() => () => (transitionToPhase3.finished);
@@ -119,18 +116,6 @@ public class ArcherBoss : MonoBehaviour
     private void Update()
     {
         _stateMachine.Tick(); // Calls Tick() function from current state
-
-        if (currentHealth > _maxHealth)
-        {
-            currentHealth = _maxHealth;
-        }
-
-        if (currentHealth < 0)
-        {
-            currentHealth = 0;
-        }
-
-        _slider.value = CalculateHealth();
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -142,12 +127,6 @@ public class ArcherBoss : MonoBehaviour
     {
         _dialogueHolder.gameObject.SetActive(true);
         _dialogueHolder.GetComponent<InGameTextLine>().WriteTextLine(text);
-    }
-    
-    // returns float to control healthbar slider
-    public float CalculateHealth()
-    {
-        return currentHealth/_maxHealth;
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -185,7 +164,7 @@ public class ArcherBoss : MonoBehaviour
     {
         GameObject[] bossParts;
         bossParts = GameObject.FindGameObjectsWithTag("BossPart");
-
+    
         foreach(GameObject bossPart in bossParts)
         {
             Destroy(bossPart);

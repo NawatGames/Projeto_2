@@ -21,14 +21,14 @@ public class Shield : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.E) && _stamina.GetStamina() > 0 && canShield)
+        if(Input.GetKey(KeyCode.LeftShift) && _stamina.GetStamina() > 0 && canShield)
         {
             isShielding = true;
             _playerMovement.activeMoveSpeed = _playerMovement.moveSpeed / penaltyRatio;
             animator.SetBool("Shielding", true);
             _stamina.RemoveStamina(Time.deltaTime * shieldConsumeRatio);
         }
-        else if (Input.GetKeyUp(KeyCode.E) && canShield)
+        else if (Input.GetKeyUp(KeyCode.LeftShift) && canShield)
         {
             isShielding = false;
             _playerMovement.activeMoveSpeed = _playerMovement.moveSpeed;

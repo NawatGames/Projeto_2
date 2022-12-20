@@ -10,16 +10,17 @@ public class Attack : MonoBehaviour
     public LayerMask enemies;
     public Animator animator;
     
-    private Health _health;
     private Shield _shield;
     private PlayerMovement _playerMovement;
     private Vector3 _attackPosition;
+    
+    private AudioSource _audioSource;
 
     private void OnEnable()
     {
-        _health = GetComponent<Health>();
         _shield = GetComponent<Shield>();
         _playerMovement = GetComponent<PlayerMovement>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -33,13 +34,11 @@ public class Attack : MonoBehaviour
             _attackPosition = transform.position - attackOffset;
         }
 
-        if(Input.GetKeyDown(KeyCode.C))
-        {         
-            if (_attackTime <= 0)
-            {
-                    BasicAttack(); 
-                    _attackTime = attackCooldown;
-            }
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            if (!(_attackTime <= 0) || _shield.isShielding) return;
+            BasicAttack(); 
+            _attackTime = attackCooldown;
         }
         else
         {
@@ -51,29 +50,12 @@ public class Attack : MonoBehaviour
     private void BasicAttack()
     {
         animator.SetBool("Attacking", true);
-        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(_attackPosition, attackRange, enemies);
-        foreach(Collider2D enemy in enemiesToDamage)
+        var partsToDamage = Physics2D.OverlapCircleAll(_attackPosition, attackRange, enemies);
+        foreach(var part in partsToDamage)
         {
-            enemy.GetComponent<BossPart>().TakeDamage(damage);
+            part.GetComponent<Health>().RemoveHealth(damage);
         }
-    }
-
-    public void TakeDamage(int value)
-    {
-        _health.RemoveHealth(value);
-
-        if(_health.GetHealth() <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(((collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent)) && _shield.isShielding))
-        {
-            enemyComponent.TakeDamage(damage);
-        }
+        _audioSource.Play();
     }
 
     void OnDrawGizmosSelected()

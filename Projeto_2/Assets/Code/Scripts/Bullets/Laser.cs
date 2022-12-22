@@ -10,10 +10,16 @@ public class Laser : MonoBehaviour
     public float laserLenght;
     public float warningDuration;
     public float laserLifetime;
+    public GameObject particles;
 
     private void OnEnable()
     {
         transform.localScale += Vector3.right * laserLenght;
+        // foreach (GameObject obj in particles.transform)
+        // {
+        //     var particleSystemShape = obj.GetComponent<ParticleSystem>().shape;
+        //     particleSystemShape.scale += Vector3.right * laserLenght;
+        // }
         StartCoroutine(FireLaser());
     }
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class LaserCollision : MonoBehaviour
@@ -20,19 +21,12 @@ public class LaserCollision : MonoBehaviour
 
         if (colGameObject.CompareTag("Player"))
         {
-            if (colGameObject.GetComponent<Shield>() == true)
-            {
-                if (!colGameObject.GetComponent<Shield>().isShielding && _t <= 0)
-                {
-                    colGameObject.GetComponent<Health>().RemoveHealth(damage);
-                    Debug.Log(damage+" DAMAGE!");
-                    _t = delay;
-                }
+            if (!colGameObject.GetComponent<Shield>().isShielding && _t <= 0)
+            { 
+                colGameObject.GetComponent<Health>().RemoveHealth(damage);
+                Debug.Log(damage+" DAMAGE!");
+                _t = delay;
             }
-        }
-        else if (colGameObject.CompareTag("Projectile"))
-        {
-            Destroy(colGameObject);
         }
     }
 }

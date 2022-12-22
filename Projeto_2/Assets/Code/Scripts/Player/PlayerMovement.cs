@@ -2,25 +2,25 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed; //player speed
-    public Rigidbody2D rb; //rigidbody to have colisions
-    public Vector2 moveInput; //bidirections of the player
-    public float activeMoveSpeed; //state of player speed
     [Header ("State control")]
+    public float moveSpeed; //player speed
+    public float activeMoveSpeed; //state of player speed
+    public Vector2 moveInput; //bidirections of the player
     public bool facingRight = true; // Is the player sprite facing to the right now?
     
+    [Header ("Component References")]
     public Animator animator;
     public GameObject sprite;
+    public ParticleSystem dust;
+    public Rigidbody2D rb; //rigidbody to have colisions
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         activeMoveSpeed = moveSpeed;
-        // animator = GetComponent<Animator>();
+        // dust.Stop();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         moveInput.x = Input.GetAxisRaw("Horizontal"); //directions of the movement in X
         moveInput.y = Input.GetAxisRaw("Vertical"); //directions of the movement in Y

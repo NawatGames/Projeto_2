@@ -15,12 +15,8 @@ public class Laser : MonoBehaviour
     private void OnEnable()
     {
         transform.localScale += Vector3.right * laserLenght;
-        // foreach (GameObject obj in particles.transform)
-        // {
-        //     var particleSystemShape = obj.GetComponent<ParticleSystem>().shape;
-        //     particleSystemShape.scale += Vector3.right * laserLenght;
-        // }
         StartCoroutine(FireLaser());
+        StartCoroutine(Blink());
     }
 
     private IEnumerator FireLaser()
@@ -31,5 +27,15 @@ public class Laser : MonoBehaviour
 
         yield return new WaitForSeconds(laserLifetime);
         Destroy(gameObject);
+    }
+
+    private IEnumerator Blink()
+    {
+        while (true)
+        {
+            laserWarning.GetComponent<SpriteRenderer>().enabled = !laserWarning.GetComponent<SpriteRenderer>().enabled;
+            yield return new WaitForSeconds(0.2f);
+        }
+        // ReSharper disable once IteratorNeverReturns
     }
 }

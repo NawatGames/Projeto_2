@@ -240,7 +240,7 @@ Transform:
   m_GameObject: {fileID: 4236533205617950151}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 8206370609323875137}
   m_Father: {fileID: 0}
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 20
+  maxHealth: 100
 --- !u!114 &1279665405970426298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2ca50e042e77b4e87d618bc2d029f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnInvincibilityTime: 0.2
+  spawnInvincibilityTime: 0.2
   destroyedDialogue: "N\xE3ooo, meu bem mais precioso! Como vou admirar minha beleza
     quando acordo de manh\xE3."
 --- !u!61 &7085951908381686495

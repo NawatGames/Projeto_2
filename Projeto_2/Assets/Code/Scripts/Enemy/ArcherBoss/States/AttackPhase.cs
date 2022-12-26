@@ -7,6 +7,7 @@ public class AttackPhase : IState
     private readonly GameObject _attackPattern;
     private readonly int _bossPartIndex;
     private GameObject bossPart;
+    private float _bossPartRespawn = 0f;
 
     // Constructor
     public AttackPhase(ArcherBoss archerBoss, GameObject attackPattern, int bossPartIndex)
@@ -23,9 +24,14 @@ public class AttackPhase : IState
         TimePassed += Time.deltaTime;
         if (bossPart == null)
         {
-            bossPart = _archerBoss.SpawnBossPart(_archerBoss.GetComponent<BoxCollider2D>().bounds, _bossPartIndex);
-            bossPart.transform.SetParent(_archerBoss.transform);
-            TimePassed -= 2f;
+            _bossPartRespawn += Time.deltaTime;
+            if (_bossPartRespawn >= 6f)
+            {
+                bossPart = _archerBoss.SpawnBossPart(_archerBoss.GetComponent<BoxCollider2D>().bounds, _bossPartIndex);
+                bossPart.transform.SetParent(_archerBoss.transform);
+                TimePassed -= 6f;
+                _bossPartRespawn = 0f;
+            }
         }
     }
 
@@ -42,8 +48,7 @@ public class AttackPhase : IState
     public void OnExit()
     {
         TimePassed = 0f;
-        _archerBoss.DespawnBossAttack();
-        _archerBoss.DespawnBossParts();
+        _archerBoss.CleanUp();
         _attackPattern.SetActive(false);
     }
 }

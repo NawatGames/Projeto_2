@@ -1112,6 +1112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6066792628252476760}
   - component: {fileID: 6066792628252476767}
+  - component: {fileID: 670927624510959486}
   m_Layer: 0
   m_Name: ArcherSprite
   m_TagString: Untagged
@@ -1127,8 +1128,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6066792628252476761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.4, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: 0, y: 3.2, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 6066792629547411758}
   m_RootOrder: 2
@@ -1184,6 +1185,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &670927624510959486
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6066792628252476761}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d97b1c9b2c7a3b44851fa0192df0fdb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6066792628419849561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,7 +1344,7 @@ MonoBehaviour:
   textFont: {fileID: 12800000, guid: 6acbb7b3600a3104b8cc0138c993fb04, type: 3}
   letterByLetterDelay: 0.05
   canvasGroup: {fileID: 1379486066}
-  fadeDuration: 2
+  fadeDuration: 0.2
 --- !u!1 &6066792629514265721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,6 +1509,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bossPart:
   - {fileID: 4236533205617950151, guid: bf18a00e538cade42b33ffe2965e31b7, type: 3}
+  - {fileID: 1592046511966832975, guid: 3591e36e6ea45f14689f9ca9f700ac89, type: 3}
+  - {fileID: 32948056340991425, guid: 2e06b28ab4d49404d80feea6522716eb, type: 3}
+  - {fileID: 667259395985837757, guid: e26043d9709fe1e41a82897d0d8bf6a1, type: 3}
   _attackPhaseDuration: 20
   _dialogueHolder: {fileID: 6066792628700347150}
   _attackPattern:

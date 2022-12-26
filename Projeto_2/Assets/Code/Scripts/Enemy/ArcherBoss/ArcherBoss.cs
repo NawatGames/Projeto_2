@@ -38,9 +38,9 @@ public class ArcherBoss : MonoBehaviour
 
         var initialDialogue = new Dialogue(this, _dialogueHolder, "O que uma criatura asquerosa como você acha que pode fazer contra mim?");
 
-        var dialogue1 = new Dialogue(this, _dialogueHolder, "Phase 1!");
-        var dialogue2 = new Dialogue(this, _dialogueHolder, "Que insistência...");
-        var dialogue3 = new Dialogue(this, _dialogueHolder, "Phase 3!");
+        var dialogue1 = new Dialogue(this, _dialogueHolder, "Mais que tédio...");
+        var dialogue2 = new Dialogue(this, _dialogueHolder, "Quanta insistência...");
+        var dialogue3 = new Dialogue(this, _dialogueHolder, "Pare de se esquivar!!");
         var dialogue4 = new Dialogue(this, _dialogueHolder, "MORRA, MORRA, MORRA!!");
 
         var phase1 = new AttackPhase(this, _attackPattern[0], 0);
@@ -49,7 +49,7 @@ public class ArcherBoss : MonoBehaviour
         var phase4 = new AttackPhase(this, _attackPattern[3], 3);
 
         var transitionToPhase2 = new Dialogue(this, _dialogueHolder, "Ei, no rosto não! Acabei de sair do salão!");
-        var transitionToPhase3 = new Dialogue(this, _dialogueHolder, "To Phase 3!");
+        var transitionToPhase3 = new Dialogue(this, _dialogueHolder, "Por que você não morre logo!");
         var transitionToPhase4 = new Dialogue(this, _dialogueHolder, "Você vai pagar por isso!");
 
         var bossDefeated = new BossDefeated(this);
@@ -147,21 +147,14 @@ public class ArcherBoss : MonoBehaviour
     //                                                     Boss Clean Up                                                       //
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    // Despawns the boss' attacks
-    public void DespawnBossAttack()
+    // Function that handles the changing phase cleanup
+    public void CleanUp()
     {
-        GameObject[] _bossAttacks;
-        _bossAttacks = GameObject.FindGameObjectsWithTag("BossAttack");
+        // Despawns text
+        _dialogueHolder.GetComponent<InGameTextLine>().Stop();
+        _dialogueHolder.gameObject.SetActive(false);
 
-        foreach(GameObject attack in _bossAttacks)
-        {
-            Destroy(attack);
-        }
-    }
-
-    // Despawns the boss' attackable parts
-    public void DespawnBossParts()
-    {
+        // Despawns the boss' parts
         GameObject[] bossParts;
         bossParts = GameObject.FindGameObjectsWithTag("BossPart");
     
@@ -169,5 +162,16 @@ public class ArcherBoss : MonoBehaviour
         {
             Destroy(bossPart);
         }
+
+        // Despawns the boss' attacks
+        GameObject[] _bossAttacks;
+        _bossAttacks = GameObject.FindGameObjectsWithTag("BossAttack");
+
+        foreach(GameObject attack in _bossAttacks)
+        {
+            Destroy(attack);
+        }
+        
+        Debug.Log("Clean UP");
     }
 }

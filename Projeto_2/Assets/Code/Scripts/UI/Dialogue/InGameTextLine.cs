@@ -41,6 +41,11 @@ public class InGameTextLine : MonoBehaviour
         StartCoroutine(writeTextLine);
     }
 
+    public void Stop()
+    {
+        StopAllCoroutines();
+    }
+
     // Starts fading when input text is fully shown, and deactivates the object when faded, resetting the object properties
     private void Update()
     {

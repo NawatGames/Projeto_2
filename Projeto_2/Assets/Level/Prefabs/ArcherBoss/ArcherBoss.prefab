@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSpawn:
-  - {fileID: 4924276723450349073, guid: 2d64d6737a7a74441b3e1cb8a119343d, type: 3}
+  - {fileID: 4924276723450349073, guid: 78da5336c66125344874ff9b0d2b7843, type: 3}
   fireRate: 0.8
 --- !u!1 &1628841183924529898
 GameObject:
@@ -769,7 +769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSpawn:
-  - {fileID: 4924276723450349073, guid: 2d64d6737a7a74441b3e1cb8a119343d, type: 3}
+  - {fileID: 4924276723450349073, guid: 78da5336c66125344874ff9b0d2b7843, type: 3}
   fireRate: 0.8
 --- !u!1 &3462774507139407971
 GameObject:
@@ -1449,10 +1449,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6066792629547411758}
   - component: {fileID: 6066792629547411757}
+  - component: {fileID: 5990443895429218346}
   - component: {fileID: 5720438073567346013}
   m_Layer: 0
   m_Name: ArcherBoss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1486,13 +1487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3271b0528040feb4dbf04ab3149b2669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1000
   _bossPart:
   - {fileID: 4236533205617950151, guid: bf18a00e538cade42b33ffe2965e31b7, type: 3}
-  - {fileID: 1592046511966832975, guid: 3591e36e6ea45f14689f9ca9f700ac89, type: 3}
-  - {fileID: 32948056340991425, guid: 2e06b28ab4d49404d80feea6522716eb, type: 3}
-  - {fileID: 667259395985837757, guid: e26043d9709fe1e41a82897d0d8bf6a1, type: 3}
-  _slider: {fileID: 9173954550321894652}
   _attackPhaseDuration: 20
   _dialogueHolder: {fileID: 6066792628700347150}
   _attackPattern:
@@ -1500,7 +1496,20 @@ MonoBehaviour:
   - {fileID: 8994258034746443390}
   - {fileID: 6260438738617344146}
   - {fileID: 8875585592978606455}
+--- !u!114 &5990443895429218346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6066792629547411759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75325802a849a374486e8a2e15c2ec4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   currentHealth: 0
+  maxHealth: 1000
 --- !u!61 &5720438073567346013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1625,7 +1634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSpawn:
-  - {fileID: 4924276723450349073, guid: 2d64d6737a7a74441b3e1cb8a119343d, type: 3}
+  - {fileID: 4924276723450349073, guid: 78da5336c66125344874ff9b0d2b7843, type: 3}
   - {fileID: 4924276723450349073, guid: 2d64d6737a7a74441b3e1cb8a119343d, type: 3}
   - {fileID: 4924276723450349073, guid: 78da5336c66125344874ff9b0d2b7843, type: 3}
   - {fileID: 4924276723450349073, guid: 2d64d6737a7a74441b3e1cb8a119343d, type: 3}
@@ -1673,6 +1682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8479988341255584174}
   - component: {fileID: 9173954550321894652}
+  - component: {fileID: 8286436522915447508}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -1752,6 +1762,49 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8286436522915447508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6391040419266538845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62098c8ae60e3044fab350678d1f87c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  img: {fileID: 816656988107694649}
+  health: {fileID: 5990443895429218346}
 --- !u!1 &6454809028440509401
 GameObject:
   m_ObjectHideFlags: 0

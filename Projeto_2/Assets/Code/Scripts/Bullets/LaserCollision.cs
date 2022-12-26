@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LaserCollision : MonoBehaviour
@@ -20,11 +17,13 @@ public class LaserCollision : MonoBehaviour
         var player = col.gameObject;
 
         _t -= Time.deltaTime;
-        
-        if (player.CompareTag("Player") && _t <= 0)
-        { 
-            Debug.Log(damage+" damage!");
-            _t = delay;
+
+        if (!player.CompareTag("Player") || !(_t <= 0)) return;
+        if (!player.GetComponent<Shield>().isShielding)
+        {
+            player.GetComponent<Health>().RemoveHealth(damage);
+            Debug.Log(damage+" DAMAGE!");
         }
+        _t = delay;
     }
 }

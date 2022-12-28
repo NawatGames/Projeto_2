@@ -65,6 +65,13 @@ public class InGameTextLine : MonoBehaviour
     // Fades the canvas in or out
     private IEnumerator Fade(CanvasGroup canvasGroup, float start, float end)
     {
+        float timer = 0f;
+
+        while (timer < 3.0f)
+        {
+            timer += Time.deltaTime;
+        }
+
         float counter = 0f;
 
         while (counter < fadeDuration)

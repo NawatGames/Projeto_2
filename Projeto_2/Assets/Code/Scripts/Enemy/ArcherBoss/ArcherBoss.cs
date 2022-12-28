@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random=UnityEngine.Random;
 
 public class ArcherBoss : MonoBehaviour
@@ -12,11 +13,15 @@ public class ArcherBoss : MonoBehaviour
     // Duration of attack phase
     [Header ("State options")]
     [SerializeField] private float _attackPhaseDuration = 3.0f;
+    [SerializeField] private Image _TransitionPanelCanvas;
 
     // Game objects that hold the dialogue and attacks
     [Header ("Holders")]
     [SerializeField] private GameObject _dialogueHolder;
     [SerializeField] private List<GameObject> _attackPattern;
+
+    [Header ("This is wrong")]
+    [SerializeField] private GameObject _player;
 
     private StateMachine _stateMachine;
     private Health _health;
@@ -25,6 +30,7 @@ public class ArcherBoss : MonoBehaviour
     public void Awake()
     {
         _health = GetComponent<Health>();
+        _TransitionPanelCanvas.color = new Color(0, 0, 0, 0);
         
         _stateMachine = new StateMachine(); // Instantiates the state machine
 
@@ -52,7 +58,8 @@ public class ArcherBoss : MonoBehaviour
         var transitionToPhase3 = new Dialogue(this, _dialogueHolder, "Por que você não morre logo!");
         var transitionToPhase4 = new Dialogue(this, _dialogueHolder, "Você vai pagar por isso!");
 
-        var bossDefeated = new BossDefeated(this);
+        var bossDefeated = new BossDefeated(this, _TransitionPanelCanvas);
+        var gameOver = new GameOver(this, _player, _TransitionPanelCanvas);
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //                                                     Transitions                                                     //
@@ -81,6 +88,7 @@ public class ArcherBoss : MonoBehaviour
 
         // Unnamed paths transitions
         _stateMachine.AddAnyTransition(bossDefeated, () => (_health.GetHealth() <= 0));
+        _stateMachine.AddAnyTransition(gameOver, () => (_player.GetComponent<Health>().GetHealth() <= 0));
 
         // Sets initial state
         _stateMachine.SetState(initialDialogue);
@@ -98,14 +106,14 @@ public class ArcherBoss : MonoBehaviour
         Func<bool> Dialogue3Finished() => () => (dialogue3.finished);
         Func<bool> Dialogue4Finished() => () => (dialogue4.finished);
 
-        Func<bool> Attack1Finished() => () => (phase1.TimePassed > _attackPhaseDuration && _health.GetPercentage() >= 0.8);
-        Func<bool> Attack2Finished() => () => (phase2.TimePassed > _attackPhaseDuration && _health.GetPercentage() >= 0.5);
-        Func<bool> Attack3Finished() => () => (phase3.TimePassed > _attackPhaseDuration && _health.GetPercentage() >= 0.2);
-        Func<bool> Attack4Finished() => () => (phase4.TimePassed > _attackPhaseDuration);
+        Func<bool> Attack1Finished() => () => (phase1.TimePassed > _attackPhaseDuration && _health.GetPercentage() >= 0.8 && !_dialogueHolder.activeSelf);
+        Func<bool> Attack2Finished() => () => (phase2.TimePassed > _attackPhaseDuration && _health.GetPercentage() >= 0.5 && !_dialogueHolder.activeSelf);
+        Func<bool> Attack3Finished() => () => (phase3.TimePassed > _attackPhaseDuration && _health.GetPercentage() >= 0.2 && !_dialogueHolder.activeSelf);
+        Func<bool> Attack4Finished() => () => (phase4.TimePassed > _attackPhaseDuration && !_dialogueHolder.activeSelf);
 
-        Func<bool> Transition1() => () => (phase1.TimePassed > _attackPhaseDuration && _health.GetPercentage() < 0.8);
-        Func<bool> Transition2() => () => (phase1.TimePassed > _attackPhaseDuration && _health.GetPercentage() < 0.5);
-        Func<bool> Transition3() => () => (phase1.TimePassed > _attackPhaseDuration && _health.GetPercentage() < 0.2);
+        Func<bool> Transition1() => () => (phase1.TimePassed > _attackPhaseDuration && _health.GetPercentage() < 0.8 && !_dialogueHolder.activeSelf);
+        Func<bool> Transition2() => () => (phase2.TimePassed > _attackPhaseDuration && _health.GetPercentage() < 0.5 && !_dialogueHolder.activeSelf);
+        Func<bool> Transition3() => () => (phase3.TimePassed > _attackPhaseDuration && _health.GetPercentage() < 0.2 && !_dialogueHolder.activeSelf);
 
         Func<bool> EndOfTransition1() => () => (transitionToPhase2.finished);
         Func<bool> EndOfTransition2() => () => (transitionToPhase3.finished);
@@ -171,7 +179,5 @@ public class ArcherBoss : MonoBehaviour
         {
             Destroy(attack);
         }
-        
-        Debug.Log("Clean UP");
     }
 }

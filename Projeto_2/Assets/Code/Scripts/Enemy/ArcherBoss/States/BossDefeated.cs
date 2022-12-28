@@ -1,23 +1,34 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossDefeated : IState
 {
     private readonly ArcherBoss _archerBoss;
+    private readonly Image _transitionPanelCanvas;
+    private float _fadeAlpha;
 
     // Constructor
-    public BossDefeated(ArcherBoss archerBoss)
+    public BossDefeated(ArcherBoss archerBoss, Image transitionPanelCanvas)
     {
         _archerBoss = archerBoss;
+        _transitionPanelCanvas = transitionPanelCanvas;
+        _fadeAlpha = 0;
     }
 
-    public void Tick() {}
+    public void Tick()
+    {
+        _transitionPanelCanvas.color = new Color(255, 255, 255, _fadeAlpha += Time.deltaTime);
+        if (_fadeAlpha >= 1f)
+        {
+            SceneManager.LoadScene(3);
+        }
+    }
 
     // Setup
     public void OnEnter()
     {
-        Debug.Log("Game Cleared!!");
         _archerBoss.CleanUp();
-        _archerBoss.transform.Find("AttackPatternHolder").gameObject.SetActive(false);
     }
 
     // Clean up

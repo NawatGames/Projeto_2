@@ -21,11 +21,12 @@ public class AttackPhase : IState
     // If a boss part was destroyed, spawns another
     public void Tick()
     {
+        Debug.Log(TimePassed);
         TimePassed += Time.deltaTime;
         if (bossPart == null)
         {
             _bossPartRespawn += Time.deltaTime;
-            if (_bossPartRespawn >= 6f)
+            if (_bossPartRespawn >= 5f)
             {
                 bossPart = _archerBoss.SpawnBossPart(_archerBoss.GetComponent<BoxCollider2D>().bounds, _bossPartIndex);
                 bossPart.transform.SetParent(_archerBoss.transform);

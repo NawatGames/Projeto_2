@@ -21,7 +21,6 @@ public class AttackPhase : IState
     // If a boss part was destroyed, spawns another
     public void Tick()
     {
-        Debug.Log(TimePassed);
         TimePassed += Time.deltaTime;
         if (bossPart == null)
         {

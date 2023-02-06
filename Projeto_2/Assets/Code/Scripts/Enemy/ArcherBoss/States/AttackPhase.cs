@@ -5,13 +5,16 @@ public class AttackPhase : IState
     public float TimePassed;
     private readonly ArcherBoss _archerBoss;
     private readonly GameObject _attackPattern;
+    private readonly int _bossPartIndex;
     private GameObject bossPart;
+    private float _bossPartRespawn = 0f;
 
     // Constructor
-    public AttackPhase(ArcherBoss archerBoss, GameObject attackPattern)
+    public AttackPhase(ArcherBoss archerBoss, GameObject attackPattern, int bossPartIndex)
     {
         _archerBoss = archerBoss;
         _attackPattern = attackPattern;
+        _bossPartIndex = bossPartIndex;
     }
 
     // Checks time passed since active
@@ -21,9 +24,14 @@ public class AttackPhase : IState
         TimePassed += Time.deltaTime;
         if (bossPart == null)
         {
-            bossPart = _archerBoss.SpawnBossPart(_archerBoss.GetComponent<BoxCollider2D>().bounds, 0);
-            bossPart.transform.SetParent(_archerBoss.transform);
-            TimePassed -= 2f;
+            _bossPartRespawn += Time.deltaTime;
+            if (_bossPartRespawn >= 5f)
+            {
+                bossPart = _archerBoss.SpawnBossPart(_archerBoss.GetComponent<BoxCollider2D>().bounds, _bossPartIndex);
+                bossPart.transform.SetParent(_archerBoss.transform);
+                TimePassed -= 6f;
+                _bossPartRespawn = 0f;
+            }
         }
     }
 
@@ -32,7 +40,7 @@ public class AttackPhase : IState
     {
         TimePassed = 0f;
         _attackPattern.SetActive(true);
-        bossPart = _archerBoss.SpawnBossPart(_archerBoss.GetComponent<BoxCollider2D>().bounds, 0);
+        bossPart = _archerBoss.SpawnBossPart(_archerBoss.GetComponent<BoxCollider2D>().bounds, _bossPartIndex);
         bossPart.transform.SetParent(_archerBoss.transform);
     }
 
@@ -40,8 +48,7 @@ public class AttackPhase : IState
     public void OnExit()
     {
         TimePassed = 0f;
-        _archerBoss.DespawnBossAttack();
-        _archerBoss.DespawnBossParts();
+        _archerBoss.CleanUp();
         _attackPattern.SetActive(false);
     }
 }

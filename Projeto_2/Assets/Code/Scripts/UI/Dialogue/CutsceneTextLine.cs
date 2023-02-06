@@ -11,6 +11,7 @@ namespace DialogueSystem
         private IEnumerator writeTextLine;
         private bool faded;
         private bool wait;
+        private float counter;
 
         [Header ("Text Options")]
         [SerializeField] private string input; // Text to be displayed
@@ -29,7 +30,7 @@ namespace DialogueSystem
         [SerializeField] private float fadeDuration; // Fade duration in seconds
 
         // Erases any text present on textHolder text and changes the image on imageHolder
-        private void Awake()
+        private void OnEnable()
         {
             canvasGroup.alpha = 0;
             faded = true;
@@ -40,11 +41,7 @@ namespace DialogueSystem
 
             imageHolder.sprite = cutsceneSprite;
             imageHolder.preserveAspect = true;
-        }
 
-        // Starts to write the text line
-        private void Start()
-        {
             StartCoroutine(Fade(canvasGroup, canvasGroup.alpha, faded?1:0, false));
             writeTextLine = WriteText(input, textHolder, textColor, textFont, letterByLetterDelay, fadeDuration);
             StartCoroutine(writeTextLine);
@@ -53,7 +50,7 @@ namespace DialogueSystem
         // Fades the canvas in or out
         private IEnumerator Fade(CanvasGroup canvasGroup, float start, float end, bool cutsceneEnd)
         {
-            float counter = 0f;
+            counter = 0f;
 
             while (counter < fadeDuration)
             {
@@ -90,6 +87,8 @@ namespace DialogueSystem
                 {
                     StartCoroutine(Fade(canvasGroup, canvasGroup.alpha, faded?1:0, true));
                     wait = true;
+                    
+                    textHolder.text = "";
                 }
             }
         }

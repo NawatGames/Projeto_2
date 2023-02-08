@@ -9,6 +9,7 @@ TagManager:
   - BossPart
   - Boss
   - Projectile
+  - Laser
   layers:
   - Default
   - TransparentFX

@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 4924276723450349073, guid: 78da5336c66125344874ff9b0d2b7843, type: 3}
-  delay: 0.2
+  delay: 0.25
   amountOfBullets: 3

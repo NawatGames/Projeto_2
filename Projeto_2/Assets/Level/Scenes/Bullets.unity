@@ -155,11 +155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToSpawn:
   - {fileID: 5255379591633462239, guid: 51215471ac624e143bd52c527efbb6b0, type: 3}
-  - {fileID: 4924276723450349073, guid: 2d64d6737a7a74441b3e1cb8a119343d, type: 3}
-  - {fileID: 3577076332606640850, guid: b2108e1198364ad409c10141ce81316f, type: 3}
-  - {fileID: 4924276723450349073, guid: f594023ac6b31634fb66280c53a59a19, type: 3}
-  - {fileID: 4924276723450349073, guid: 78da5336c66125344874ff9b0d2b7843, type: 3}
-  - {fileID: 8899217915137278349, guid: 9b652907bb60c804ab032c4bb46b2f5f, type: 3}
   fireRate: 1
 --- !u!212 &83545124
 SpriteRenderer:

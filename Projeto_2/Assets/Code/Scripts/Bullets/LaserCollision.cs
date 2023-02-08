@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class LaserCollision : MonoBehaviour
@@ -14,16 +15,18 @@ public class LaserCollision : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        var player = col.gameObject;
+        var colGameObject = col.gameObject;
 
         _t -= Time.deltaTime;
 
-        if (!player.CompareTag("Player") || !(_t <= 0)) return;
-        if (!player.GetComponent<Shield>().isShielding)
+        if (colGameObject.CompareTag("Player"))
         {
-            player.GetComponent<Health>().RemoveHealth(damage);
-            Debug.Log(damage+" DAMAGE!");
+            if (!colGameObject.GetComponent<Shield>().isShielding && _t <= 0)
+            { 
+                colGameObject.GetComponent<Health>().RemoveHealth(damage);
+                Debug.Log(damage+" DAMAGE!");
+                _t = delay;
+            }
         }
-        _t = delay;
     }
 }

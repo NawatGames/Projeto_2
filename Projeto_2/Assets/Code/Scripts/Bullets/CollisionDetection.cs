@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CollisionDetection : MonoBehaviour
@@ -13,7 +14,17 @@ public class CollisionDetection : MonoBehaviour
         {
             player.GetComponent<Health>().RemoveHealth(damage);
             Debug.Log(damage+" DAMAGE!");
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Laser"))
+        {
+            Debug.Log("PROJECTILE DESTROYED");
+            Destroy(gameObject);
+        }
     }
 }

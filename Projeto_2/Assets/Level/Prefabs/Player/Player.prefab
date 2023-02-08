@@ -648,7 +648,7 @@ MonoBehaviour:
   attackOffset: {x: 1.5, y: 0, z: 0}
   attackRange: 0.75
   attackCooldown: 0.5
-  damage: 5
+  damage: 10
   enemies:
     serializedVersion: 2
     m_Bits: 64

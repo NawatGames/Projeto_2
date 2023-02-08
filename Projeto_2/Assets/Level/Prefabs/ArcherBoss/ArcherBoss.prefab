@@ -1553,6 +1553,7 @@ MonoBehaviour:
   - {fileID: 8994258034746443390}
   - {fileID: 6260438738617344146}
   - {fileID: 8875585592978606455}
+  _player: {fileID: 0}
 --- !u!114 &5990443895429218346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1566,7 +1567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 1000
+  maxHealth: 1200
 --- !u!61 &5720438073567346013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2028,7 +2029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToSpawn:
   - {fileID: 8899217915137278349, guid: 9b652907bb60c804ab032c4bb46b2f5f, type: 3}
-  fireRate: 3
+  fireRate: 0.8
 --- !u!1 &7172113428502729390
 GameObject:
   m_ObjectHideFlags: 0
